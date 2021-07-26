@@ -50,16 +50,17 @@ public class UserServiceImpl implements UserService {
             UserExample example = new UserExample();
             UserExample.Criteria criteria = example.createCriteria();
 //            criteria.andAccountEqualTo(user.getAccount());
-//            if (user.getId()!=null)
-//                criteria.andIdNotEqualTo(user.getId());
+            if (user.getId()!=null)
+                criteria.andIdNotEqualTo(user.getId());
             List<User> users = userMapper.selectByExample(example);
 //            if (!CollectionUtils.isEmpty(users))
 //                return ApiRes.fail("学号不能重复！");
-            if (user.getId()!=null) {
-                userMapper.updateByPrimaryKeySelective(user);
-            } else {
-                userMapper.insert(user);
-            }
+//            if (user.getId()!=null) {
+//                userMapper.updateByPrimaryKeySelective(user);
+//                System.out.println("执行了这个if");
+//            } else {
+                userMapper.insertSelective(user);
+//            }
         }
         return ApiRes.ok("success");
     }
