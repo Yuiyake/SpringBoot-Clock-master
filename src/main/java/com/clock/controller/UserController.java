@@ -33,4 +33,9 @@ public class UserController {
     public ApiRes deleteUser(Integer id) {
         return userService.deleteUser(id);
     }
+
+    @GetMapping("/updateUser")
+    public ApiRes updateUser(@RequestBody User user) {
+        return userService.updateUser(user);
+    }
 }

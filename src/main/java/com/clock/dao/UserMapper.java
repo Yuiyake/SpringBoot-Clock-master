@@ -34,4 +34,6 @@ public interface UserMapper {
     List<UserBO> selectAllUser(UserPO po);
 
     UserBO selectById(Integer id);
+
+    void updateByExample(User user);
 }

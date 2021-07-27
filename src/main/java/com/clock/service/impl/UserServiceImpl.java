@@ -79,6 +79,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ApiRes deleteUser(Integer id) {
-        return null;
+        userMapper.deleteByPrimaryKey(id);
+        return ApiRes.ok("success");
+    }
+
+    @Override
+    public ApiRes updateUser(User user) {
+        userMapper.updateByExample(user);
+        return ApiRes.ok("success");
     }
 }

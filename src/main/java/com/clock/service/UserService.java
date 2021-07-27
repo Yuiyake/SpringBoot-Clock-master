@@ -16,4 +16,6 @@ public interface UserService {
 
     ApiRes deleteUser(Integer id);
 
+    ApiRes updateUser(User user);
+
 }
