@@ -55,12 +55,13 @@ public class UserServiceImpl implements UserService {
             List<User> users = userMapper.selectByExample(example);
 //            if (!CollectionUtils.isEmpty(users))
 //                return ApiRes.fail("学号不能重复！");
-//            if (user.getId()!=null) {
-//                userMapper.updateByPrimaryKeySelective(user);
-//                System.out.println("执行了这个if");
-//            } else {
+            if (user.getId()!=null) {
+                userMapper.updateByPrimaryKeySelective(user);
+                System.out.println("执行了这个if");
+                // 这里有问题，添加成员也会执行这个update，而不是添加
+            } else {
                 userMapper.insertSelective(user);
-//            }
+            }
         }
         return ApiRes.ok("success");
     }
