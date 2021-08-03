@@ -34,7 +34,7 @@ public class UserController {
         return userService.deleteUser(id);
     }
 
-    @GetMapping("/updateUser")
+    @PostMapping("/updateUser")
     public ApiRes updateUser(@RequestBody User user) {
         return userService.updateUser(user);
     }
