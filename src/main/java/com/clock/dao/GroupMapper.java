@@ -3,6 +3,9 @@ package com.clock.dao;
 import com.clock.bean.Group;
 import com.clock.bean.GroupExample;
 import java.util.List;
+
+import com.clock.bean.bo.GroupBO;
+import com.clock.bean.po.GroupPO;
 import org.apache.ibatis.annotations.Param;
 
 public interface GroupMapper {
@@ -27,4 +30,6 @@ public interface GroupMapper {
     int updateByPrimaryKeySelective(Group record);
 
     int updateByPrimaryKey(Group record);
+
+    List<GroupBO> selectAllGroup(GroupPO po);
 }

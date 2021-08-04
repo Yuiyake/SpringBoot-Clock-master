@@ -141,6 +141,12 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+
+  <select id="selectAllGroup" resultType="com.clock.bean.bo.GroupBO">
+    select g.gid, g.clocktype, g.gname, g.g_num, t.tname
+    from `group` g, type t
+    where g.clocktype = t.tid
+  </select>
   <update id="updateByExampleSelective" parameterType="map">
     update group
     <set>

@@ -7,7 +7,7 @@ public class Group {
 
     private String clocktype;
 
-    private Integer gNum;
+    private Integer g_num;
 
     public Integer getGid() {
         return gid;
@@ -34,10 +34,10 @@ public class Group {
     }
 
     public Integer getgNum() {
-        return gNum;
+        return g_num;
     }
 
-    public void setgNum(Integer gNum) {
-        this.gNum = gNum;
+    public void setgNum(Integer g_num) {
+        this.g_num = g_num;
     }
 }
