@@ -6,4 +6,5 @@ import com.clock.util.ApiRes;
 
 public interface GroupService {
     ApiRes selectAllGroups(GroupPO param);
+    ApiRes updateGroup(Group group);
 }

@@ -35,4 +35,10 @@ public class GroupServiceImpl implements GroupService {
         List<GroupBO> list = groupMapper.selectAllGroup(po);
         return ApiRes.ok(list);
     }
+
+    @Override
+    public ApiRes updateGroup(Group group) {
+        groupMapper.updateByPrimaryKeySelective(group);
+        return ApiRes.ok("success");
+    }
 }
