@@ -35,7 +35,8 @@ public class TypeServiceImpl implements TypeService {
 
     @Override
     public ApiRes updateType(Type type) {
-        return null;
+        typeMapper.updateByPrimaryKeySelective(type);
+        return ApiRes.ok("success");
     }
 
     @Override
