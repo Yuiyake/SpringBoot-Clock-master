@@ -40,12 +40,15 @@ public class TypeServiceImpl implements TypeService {
     }
 
     @Override
-    public ApiRes deleteUser(Integer tid) {
-        return null;
+    public ApiRes deleteType(Integer tid) {
+        typeMapper.deleteByPrimaryKey(tid);
+        return ApiRes.ok("success");
     }
 
     @Override
-    public ApiRes updateUser(Type type) {
+    public ApiRes addType(Type type) {
         return null;
     }
+
+
 }

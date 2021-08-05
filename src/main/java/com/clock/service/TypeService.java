@@ -11,7 +11,7 @@ public interface TypeService {
 
     ApiRes selectAllType(TypePO po);
 
-    ApiRes deleteUser(Integer tid);
+    ApiRes deleteType(Integer tid);
 
-    ApiRes updateUser(Type type);
+    ApiRes addType(Type type);
 }

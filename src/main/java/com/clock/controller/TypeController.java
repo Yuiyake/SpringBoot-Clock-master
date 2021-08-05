@@ -6,10 +6,7 @@ import com.clock.bean.po.TypePO;
 import com.clock.service.TypeService;
 import com.clock.util.ApiRes;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/type")
@@ -26,6 +23,11 @@ public class TypeController {
     @PostMapping("/updateType")
     public ApiRes updateType(@RequestBody Type type){
         return typeService.updateType(type);
+    }
+
+    @GetMapping("/deleteType")
+    public ApiRes deleteType(Integer tid) {
+        return typeService.deleteType(tid);
     }
 
 }
