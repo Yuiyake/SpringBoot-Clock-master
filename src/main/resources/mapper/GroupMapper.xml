@@ -159,8 +159,8 @@
       <if test="record.clocktype != null">
         clocktype = #{record.clocktype,jdbcType=VARCHAR},
       </if>
-      <if test="record.gNum != null">
-        g_num = #{record.gNum,jdbcType=INTEGER},
+      <if test="record.g_num != null">
+        g_num = #{record.g_num,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -186,7 +186,7 @@
       <if test="clocktype != null">
         clocktype = #{clocktype,jdbcType=VARCHAR},
       </if>
-      <if test="gNum != null">
+      <if test="g_num != null">
         g_num = #{gNum,jdbcType=INTEGER},
       </if>
     </set>
@@ -196,7 +196,14 @@
     update group
     set gname = #{gname,jdbcType=VARCHAR},
       clocktype = #{clocktype,jdbcType=VARCHAR},
-      g_num = #{gNum,jdbcType=INTEGER}
+      g_num = #{g_num,jdbcType=INTEGER}
     where gid = #{gid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyy" parameterType="com.clock.bean.Group">
+    update group
+    set gname = #{gname},
+        clocktype = #{clocktype},
+        g_num = #{g_num}
+    where gid = #{gid}
   </update>
 </mapper>

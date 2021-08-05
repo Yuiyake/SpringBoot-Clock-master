@@ -32,4 +32,6 @@ public interface GroupMapper {
     int updateByPrimaryKey(Group record);
 
     List<GroupBO> selectAllGroup(GroupPO po);
+
+    int updateByPrimaryKeyy(Group group);
 }

@@ -38,7 +38,7 @@ public class GroupServiceImpl implements GroupService {
 
     @Override
     public ApiRes updateGroup(Group group) {
-        groupMapper.updateByPrimaryKeySelective(group);
+        groupMapper.updateByPrimaryKey(group);
         return ApiRes.ok("success");
     }
 }

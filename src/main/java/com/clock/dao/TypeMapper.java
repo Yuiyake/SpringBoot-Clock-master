@@ -3,6 +3,8 @@ package com.clock.dao;
 import com.clock.bean.Type;
 import com.clock.bean.TypeExample;
 import java.util.List;
+
+import com.clock.bean.po.TypePO;
 import org.apache.ibatis.annotations.Param;
 
 public interface TypeMapper {
@@ -17,6 +19,8 @@ public interface TypeMapper {
     int insertSelective(Type record);
 
     List<Type> selectByExample(TypeExample example);
+
+    List<Type> selectAllType(TypePO po);
 
     Type selectByPrimaryKey(Integer tid);
 

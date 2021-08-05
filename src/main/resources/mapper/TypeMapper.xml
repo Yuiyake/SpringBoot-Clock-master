@@ -132,6 +132,9 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+  <select id="selectAllType" resultType="com.clock.bean.Type">
+    select * from type
+  </select>
   <update id="updateByExampleSelective" parameterType="map">
     update type
     <set>
