@@ -225,63 +225,123 @@ public class ReplyExample {
             return (Criteria) this;
         }
 
-        public Criteria andUidIsNull() {
-            addCriterion("uid is null");
+        public Criteria andFromuidIsNull() {
+            addCriterion("fromuid is null");
             return (Criteria) this;
         }
 
-        public Criteria andUidIsNotNull() {
-            addCriterion("uid is not null");
+        public Criteria andFromuidIsNotNull() {
+            addCriterion("fromuid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUidEqualTo(Integer value) {
-            addCriterion("uid =", value, "uid");
+        public Criteria andFromuidEqualTo(Integer value) {
+            addCriterion("fromuid =", value, "fromuid");
             return (Criteria) this;
         }
 
-        public Criteria andUidNotEqualTo(Integer value) {
-            addCriterion("uid <>", value, "uid");
+        public Criteria andFromuidNotEqualTo(Integer value) {
+            addCriterion("fromuid <>", value, "fromuid");
             return (Criteria) this;
         }
 
-        public Criteria andUidGreaterThan(Integer value) {
-            addCriterion("uid >", value, "uid");
+        public Criteria andFromuidGreaterThan(Integer value) {
+            addCriterion("fromuid >", value, "fromuid");
             return (Criteria) this;
         }
 
-        public Criteria andUidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("uid >=", value, "uid");
+        public Criteria andFromuidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("fromuid >=", value, "fromuid");
             return (Criteria) this;
         }
 
-        public Criteria andUidLessThan(Integer value) {
-            addCriterion("uid <", value, "uid");
+        public Criteria andFromuidLessThan(Integer value) {
+            addCriterion("fromuid <", value, "fromuid");
             return (Criteria) this;
         }
 
-        public Criteria andUidLessThanOrEqualTo(Integer value) {
-            addCriterion("uid <=", value, "uid");
+        public Criteria andFromuidLessThanOrEqualTo(Integer value) {
+            addCriterion("fromuid <=", value, "fromuid");
             return (Criteria) this;
         }
 
-        public Criteria andUidIn(List<Integer> values) {
-            addCriterion("uid in", values, "uid");
+        public Criteria andFromuidIn(List<Integer> values) {
+            addCriterion("fromuid in", values, "fromuid");
             return (Criteria) this;
         }
 
-        public Criteria andUidNotIn(List<Integer> values) {
-            addCriterion("uid not in", values, "uid");
+        public Criteria andFromuidNotIn(List<Integer> values) {
+            addCriterion("fromuid not in", values, "fromuid");
             return (Criteria) this;
         }
 
-        public Criteria andUidBetween(Integer value1, Integer value2) {
-            addCriterion("uid between", value1, value2, "uid");
+        public Criteria andFromuidBetween(Integer value1, Integer value2) {
+            addCriterion("fromuid between", value1, value2, "fromuid");
             return (Criteria) this;
         }
 
-        public Criteria andUidNotBetween(Integer value1, Integer value2) {
-            addCriterion("uid not between", value1, value2, "uid");
+        public Criteria andFromuidNotBetween(Integer value1, Integer value2) {
+            addCriterion("fromuid not between", value1, value2, "fromuid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTouidIsNull() {
+            addCriterion("touid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTouidIsNotNull() {
+            addCriterion("touid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTouidEqualTo(Integer value) {
+            addCriterion("touid =", value, "touid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTouidNotEqualTo(Integer value) {
+            addCriterion("touid <>", value, "touid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTouidGreaterThan(Integer value) {
+            addCriterion("touid >", value, "touid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTouidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("touid >=", value, "touid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTouidLessThan(Integer value) {
+            addCriterion("touid <", value, "touid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTouidLessThanOrEqualTo(Integer value) {
+            addCriterion("touid <=", value, "touid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTouidIn(List<Integer> values) {
+            addCriterion("touid in", values, "touid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTouidNotIn(List<Integer> values) {
+            addCriterion("touid not in", values, "touid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTouidBetween(Integer value1, Integer value2) {
+            addCriterion("touid between", value1, value2, "touid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTouidNotBetween(Integer value1, Integer value2) {
+            addCriterion("touid not between", value1, value2, "touid");
             return (Criteria) this;
         }
 

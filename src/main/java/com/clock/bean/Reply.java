@@ -7,7 +7,9 @@ public class Reply {
 
     private Integer did;
 
-    private Integer uid;
+    private Integer fromuid;
+
+    private Integer touid;
 
     private Date rtime;
 
@@ -29,12 +31,20 @@ public class Reply {
         this.did = did;
     }
 
-    public Integer getUid() {
-        return uid;
+    public Integer getFromuid() {
+        return fromuid;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setFromuid(Integer fromuid) {
+        this.fromuid = fromuid;
+    }
+
+    public Integer getTouid() {
+        return touid;
+    }
+
+    public void setTouid(Integer touid) {
+        this.touid = touid;
     }
 
     public Date getRtime() {
