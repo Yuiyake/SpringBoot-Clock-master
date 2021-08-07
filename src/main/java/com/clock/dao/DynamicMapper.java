@@ -3,6 +3,9 @@ package com.clock.dao;
 import com.clock.bean.Dynamic;
 import com.clock.bean.DynamicExample;
 import java.util.List;
+
+import com.clock.bean.bo.DynamicBO;
+import com.clock.bean.po.DynamicPO;
 import org.apache.ibatis.annotations.Param;
 
 public interface DynamicMapper {
@@ -19,6 +22,8 @@ public interface DynamicMapper {
     List<Dynamic> selectByExampleWithBLOBs(DynamicExample example);
 
     List<Dynamic> selectByExample(DynamicExample example);
+
+    List<DynamicBO> selectAllDynamic(DynamicPO po);
 
     Dynamic selectByPrimaryKey(Integer did);
 

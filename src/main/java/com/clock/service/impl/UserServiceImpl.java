@@ -37,6 +37,8 @@ public class UserServiceImpl implements UserService {
         User user = users.get(0);
         if ("0".equals(user.getRole())){
             return ApiRes.ok(user);
+        } else if ("1".equals(user.getRole())){
+            return ApiRes.ok(user);
         }
         UserBO bo = userMapper.selectById(user.getId());
         return ApiRes.ok(bo);

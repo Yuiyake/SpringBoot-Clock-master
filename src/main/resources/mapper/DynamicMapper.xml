@@ -187,7 +187,12 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+<!--新增查询所有-->
+    <select id="selectAllDynamic" resultType="com.clock.bean.bo.DynamicBO">
+      select * from dynamic
+    </select>
+
+    <update id="updateByExampleSelective" parameterType="map">
     update dynamic
     <set>
       <if test="record.did != null">
