@@ -37,4 +37,9 @@ public class DynamicServiceImpl implements DynamicService {
         dynamicMapper.deleteByPrimaryKey(did);
         return ApiRes.ok("success");
     }
+
+    @Override
+    public ApiRes selectThisDynamic(DynamicPO po) {
+        return null;
+    }
 }
