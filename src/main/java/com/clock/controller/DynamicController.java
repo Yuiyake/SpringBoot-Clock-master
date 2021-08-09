@@ -22,7 +22,7 @@ public class DynamicController {
         return dynamicService.deleteDynamic(did);
     }
 
-    @PostMapping("/selectThisDynamic")
+    @RequestMapping("/selectThisDynamic")
     public ApiRes selectThisDynamic(Integer uid){
         return dynamicService.selectThisDynamic(uid);
     }
