@@ -187,12 +187,16 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-<!--新增查询所有-->
+<!--新增查询所有动态-->
     <select id="selectAllDynamic" resultType="com.clock.bean.bo.DynamicBO">
       select * from dynamic
     </select>
+<!--  新增查询指定用户的动态-->
+  <select id="selectThisDynamic" resultType="com.clock.bean.Dynamic">
+    select * from dynamic where uid = #{uid}
+  </select>
 
-    <update id="updateByExampleSelective" parameterType="map">
+  <update id="updateByExampleSelective" parameterType="map">
     update dynamic
     <set>
       <if test="record.did != null">

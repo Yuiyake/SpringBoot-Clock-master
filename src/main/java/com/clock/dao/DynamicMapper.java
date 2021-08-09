@@ -25,6 +25,8 @@ public interface DynamicMapper {
 
     List<DynamicBO> selectAllDynamic(DynamicPO po);
 
+    List<Dynamic> selectThisDynamic(Integer uid);
+
     Dynamic selectByPrimaryKey(Integer did);
 
     int updateByExampleSelective(@Param("record") Dynamic record, @Param("example") DynamicExample example);

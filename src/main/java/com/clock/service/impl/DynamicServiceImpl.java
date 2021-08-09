@@ -39,7 +39,9 @@ public class DynamicServiceImpl implements DynamicService {
     }
 
     @Override
-    public ApiRes selectThisDynamic(DynamicPO po) {
-        return null;
+    public ApiRes selectThisDynamic(Integer uid) {
+//        List<Dynamic> list = dynamicMapper.selectThisDynamic(uid);
+        dynamicMapper.selectThisDynamic(uid);
+        return ApiRes.ok("success");
     }
 }
