@@ -100,6 +100,7 @@
   <select id="selectAllUser" resultMap="BaseResultMap">
     SELECT u.*
     from `user` u
+    where state = '0'
 <!--    <if test="username!=null and username!=''" >-->
 <!--      and u.username LIKE CONCAT('%',#{username},'%')-->
 <!--    </if>-->
@@ -109,6 +110,12 @@
 <!--    <if test="role!=null and role!=''" >-->
 <!--      and u.role LIKE CONCAT('%',#{role},'%')-->
 <!--    </if>-->
+  </select>
+
+  <select id="selectForbidUser" resultMap="BaseResultMap">
+    select *
+    from user
+    where state = '1'
   </select>
 
   <select id="selectById" resultMap="BaseResultMap">
@@ -326,4 +333,17 @@
       uavg = #{uavg,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+<!--  禁用user-->
+    <update id="forbidUser" parameterType="com.clock.bean.User">
+      update user
+      set state = '1'
+      where id = #{id}
+    </update>
+
+<!--恢复user-->
+  <update id="recoveryUser" parameterType="com.clock.bean.User">
+    update user
+    set state = '0'
+    where id = #{id}
+    </update>
 </mapper>

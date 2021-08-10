@@ -82,6 +82,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public ApiRes selectForbidUser(UserPO po) {
+        if ("0".equals(po.getIsPage())) {
+            List<UserBO> list = userMapper.selectForbidUser(po);
+            return ApiRes.ok(list);
+        }
+        PageHelper.startPage(po.getPageNum(),po.getPageSize());
+        List<UserBO> list = userMapper.selectForbidUser(po);
+        PageInfo<UserBO> info = new PageInfo<>(list);
+        return ApiRes.ok(info);
+    }
+
+    @Override
     public ApiRes deleteUser(Integer id) {
         userMapper.deleteByPrimaryKey(id);
         return ApiRes.ok("success");
@@ -90,6 +102,18 @@ public class UserServiceImpl implements UserService {
     @Override
     public ApiRes updateUser(User user) {
         userMapper.updateByPrimaryKeySelective(user);
+        return ApiRes.ok("success");
+    }
+
+    @Override
+    public ApiRes forbidUser(Integer id) {
+        userMapper.forbidUser(id);
+        return ApiRes.ok("success");
+    }
+
+    @Override
+    public ApiRes recoveryUser(Integer id) {
+        userMapper.recoveryUser(id);
         return ApiRes.ok("success");
     }
 }

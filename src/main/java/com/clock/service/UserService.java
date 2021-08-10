@@ -14,8 +14,14 @@ public interface UserService {
 
     ApiRes selectAllUser(UserPO po);
 
+    ApiRes selectForbidUser(UserPO po);
+
     ApiRes deleteUser(Integer id);
 
     ApiRes updateUser(User user);
+
+    ApiRes forbidUser(Integer id);
+
+    ApiRes recoveryUser(Integer id);
 
 }

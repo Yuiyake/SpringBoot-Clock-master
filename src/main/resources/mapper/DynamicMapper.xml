@@ -193,7 +193,9 @@
     </select>
 <!--  新增查询指定用户的动态-->
   <select id="selectThisDynamic" resultType="com.clock.bean.Dynamic">
-    select * from dynamic where uid = #{uid}
+    select *
+    from dynamic
+    where uid = #{uid}
   </select>
 
   <update id="updateByExampleSelective" parameterType="map">

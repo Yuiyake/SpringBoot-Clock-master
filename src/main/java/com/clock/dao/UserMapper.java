@@ -23,6 +23,10 @@ public interface UserMapper {
 
     User selectByPrimaryKey(Integer id);
 
+    int forbidUser(Integer id);
+
+    int recoveryUser(Integer id);
+
     int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
 
     int updateByExample(@Param("record") User record, @Param("example") UserExample example);
@@ -36,4 +40,6 @@ public interface UserMapper {
     UserBO selectById(Integer id);
 
     void updateByExample(User user);
+
+    List<UserBO> selectForbidUser(UserPO po);
 }

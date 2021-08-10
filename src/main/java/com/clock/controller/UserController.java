@@ -35,6 +35,12 @@ public class UserController {
         return userService.selectAllUser(po);
     }
 
+    @PostMapping("/selectForbidUser")
+    @ApiOperation("获取所有禁用用户列表")
+    public ApiRes selectForbidUser(@RequestBody UserPO po) {
+        return userService.selectForbidUser(po);
+    }
+
     @GetMapping("/deleteUser")
     @ApiOperation("删除用户")
     public ApiRes deleteUser(Integer id) {
@@ -45,5 +51,17 @@ public class UserController {
     @ApiOperation("更新用户资料")
     public ApiRes updateUser(@RequestBody User user) {
         return userService.updateUser(user);
+    }
+
+    @PostMapping("/forbidUser")
+    @ApiOperation("禁用用户")
+    public ApiRes forbidUser(Integer id){
+        return userService.forbidUser(id);
+    }
+
+    @PostMapping("/recoveryUser")
+    @ApiOperation("恢复用户")
+    public ApiRes recoveryUser(Integer id){
+        return userService.recoveryUser(id);
     }
 }
