@@ -44,6 +44,7 @@ public class UserServiceImpl implements UserService {
         return ApiRes.ok(bo);
     }
 
+//添加
     @Override
     public ApiRes register(User user) {
         if ("0".equals(user.getRole())){

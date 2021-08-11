@@ -47,7 +47,8 @@ public class TypeServiceImpl implements TypeService {
 
     @Override
     public ApiRes addType(Type type) {
-        return null;
+        typeMapper.insertSelective(type);
+        return ApiRes.ok("success");
     }
 
 

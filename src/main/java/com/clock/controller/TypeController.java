@@ -20,6 +20,11 @@ public class TypeController {
         return typeService.selectAllType(typePO);
     }
 
+    @PostMapping("/addType")
+    public ApiRes addType(@RequestBody Type type){
+        return typeService.addType(type);
+    }
+
     @PostMapping("/updateType")
     public ApiRes updateType(@RequestBody Type type){
         return typeService.updateType(type);
