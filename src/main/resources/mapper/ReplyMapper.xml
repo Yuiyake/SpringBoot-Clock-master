@@ -178,6 +178,11 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+  <select id="selectUserReply" resultType="com.clock.bean.Reply">
+    select *
+    from reply
+    where did = #{did}
+  </select>
   <update id="updateByExampleSelective" parameterType="map">
     update reply
     <set>

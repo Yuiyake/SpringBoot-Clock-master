@@ -33,4 +33,6 @@ public interface ReplyMapper {
     int updateByPrimaryKeyWithBLOBs(Reply record);
 
     int updateByPrimaryKey(Reply record);
+
+    List<Reply> selectUserReply(Integer did);
 }
