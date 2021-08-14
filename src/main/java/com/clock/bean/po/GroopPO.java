@@ -4,6 +4,6 @@ import com.clock.util.PageParam;
 import lombok.Data;
 
 @Data
-public class GroupPO extends PageParam {
+public class GroopPO extends PageParam {
     private Integer gId;
 }

@@ -1,7 +1,6 @@
 package com.clock.service.impl;
 
 import com.clock.bean.Dynamic;
-import com.clock.bean.Type;
 import com.clock.bean.bo.DynamicBO;
 import com.clock.bean.po.DynamicPO;
 import com.clock.dao.DynamicMapper;

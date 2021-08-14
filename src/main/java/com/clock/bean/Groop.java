@@ -1,13 +1,15 @@
 package com.clock.bean;
 
-public class Group {
+public class Groop {
     private Integer gid;
 
     private String gname;
 
     private String clocktype;
 
-    private Integer g_num;
+    private Integer gnum;
+
+    private Integer clocknum;
 
     public Integer getGid() {
         return gid;
@@ -33,11 +35,19 @@ public class Group {
         this.clocktype = clocktype == null ? null : clocktype.trim();
     }
 
-    public Integer getgNum() {
-        return g_num;
+    public Integer getGnum() {
+        return gnum;
     }
 
-    public void setgNum(Integer g_num) {
-        this.g_num = g_num;
+    public void setGnum(Integer gnum) {
+        this.gnum = gnum;
+    }
+
+    public Integer getClocknum() {
+        return clocknum;
+    }
+
+    public void setClocknum(Integer clocknum) {
+        this.clocknum = clocknum;
     }
 }

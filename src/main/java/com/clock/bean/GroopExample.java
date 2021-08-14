@@ -3,14 +3,14 @@ package com.clock.bean;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroupExample {
+public class GroopExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public GroupExample() {
+    public GroopExample() {
         oredCriteria = new ArrayList<>();
     }
 
@@ -304,63 +304,123 @@ public class GroupExample {
             return (Criteria) this;
         }
 
-        public Criteria andGNumIsNull() {
-            addCriterion("g_num is null");
+        public Criteria andGnumIsNull() {
+            addCriterion("gnum is null");
             return (Criteria) this;
         }
 
-        public Criteria andGNumIsNotNull() {
-            addCriterion("g_num is not null");
+        public Criteria andGnumIsNotNull() {
+            addCriterion("gnum is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGNumEqualTo(Integer value) {
-            addCriterion("g_num =", value, "gNum");
+        public Criteria andGnumEqualTo(Integer value) {
+            addCriterion("gnum =", value, "gnum");
             return (Criteria) this;
         }
 
-        public Criteria andGNumNotEqualTo(Integer value) {
-            addCriterion("g_num <>", value, "gNum");
+        public Criteria andGnumNotEqualTo(Integer value) {
+            addCriterion("gnum <>", value, "gnum");
             return (Criteria) this;
         }
 
-        public Criteria andGNumGreaterThan(Integer value) {
-            addCriterion("g_num >", value, "gNum");
+        public Criteria andGnumGreaterThan(Integer value) {
+            addCriterion("gnum >", value, "gnum");
             return (Criteria) this;
         }
 
-        public Criteria andGNumGreaterThanOrEqualTo(Integer value) {
-            addCriterion("g_num >=", value, "gNum");
+        public Criteria andGnumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("gnum >=", value, "gnum");
             return (Criteria) this;
         }
 
-        public Criteria andGNumLessThan(Integer value) {
-            addCriterion("g_num <", value, "gNum");
+        public Criteria andGnumLessThan(Integer value) {
+            addCriterion("gnum <", value, "gnum");
             return (Criteria) this;
         }
 
-        public Criteria andGNumLessThanOrEqualTo(Integer value) {
-            addCriterion("g_num <=", value, "gNum");
+        public Criteria andGnumLessThanOrEqualTo(Integer value) {
+            addCriterion("gnum <=", value, "gnum");
             return (Criteria) this;
         }
 
-        public Criteria andGNumIn(List<Integer> values) {
-            addCriterion("g_num in", values, "gNum");
+        public Criteria andGnumIn(List<Integer> values) {
+            addCriterion("gnum in", values, "gnum");
             return (Criteria) this;
         }
 
-        public Criteria andGNumNotIn(List<Integer> values) {
-            addCriterion("g_num not in", values, "gNum");
+        public Criteria andGnumNotIn(List<Integer> values) {
+            addCriterion("gnum not in", values, "gnum");
             return (Criteria) this;
         }
 
-        public Criteria andGNumBetween(Integer value1, Integer value2) {
-            addCriterion("g_num between", value1, value2, "gNum");
+        public Criteria andGnumBetween(Integer value1, Integer value2) {
+            addCriterion("gnum between", value1, value2, "gnum");
             return (Criteria) this;
         }
 
-        public Criteria andGNumNotBetween(Integer value1, Integer value2) {
-            addCriterion("g_num not between", value1, value2, "gNum");
+        public Criteria andGnumNotBetween(Integer value1, Integer value2) {
+            addCriterion("gnum not between", value1, value2, "gnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andClocknumIsNull() {
+            addCriterion("clocknum is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClocknumIsNotNull() {
+            addCriterion("clocknum is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClocknumEqualTo(Integer value) {
+            addCriterion("clocknum =", value, "clocknum");
+            return (Criteria) this;
+        }
+
+        public Criteria andClocknumNotEqualTo(Integer value) {
+            addCriterion("clocknum <>", value, "clocknum");
+            return (Criteria) this;
+        }
+
+        public Criteria andClocknumGreaterThan(Integer value) {
+            addCriterion("clocknum >", value, "clocknum");
+            return (Criteria) this;
+        }
+
+        public Criteria andClocknumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("clocknum >=", value, "clocknum");
+            return (Criteria) this;
+        }
+
+        public Criteria andClocknumLessThan(Integer value) {
+            addCriterion("clocknum <", value, "clocknum");
+            return (Criteria) this;
+        }
+
+        public Criteria andClocknumLessThanOrEqualTo(Integer value) {
+            addCriterion("clocknum <=", value, "clocknum");
+            return (Criteria) this;
+        }
+
+        public Criteria andClocknumIn(List<Integer> values) {
+            addCriterion("clocknum in", values, "clocknum");
+            return (Criteria) this;
+        }
+
+        public Criteria andClocknumNotIn(List<Integer> values) {
+            addCriterion("clocknum not in", values, "clocknum");
+            return (Criteria) this;
+        }
+
+        public Criteria andClocknumBetween(Integer value1, Integer value2) {
+            addCriterion("clocknum between", value1, value2, "clocknum");
+            return (Criteria) this;
+        }
+
+        public Criteria andClocknumNotBetween(Integer value1, Integer value2) {
+            addCriterion("clocknum not between", value1, value2, "clocknum");
             return (Criteria) this;
         }
     }

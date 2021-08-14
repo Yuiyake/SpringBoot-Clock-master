@@ -1,6 +1,5 @@
 package com.clock.controller;
 
-import com.clock.bean.Group;
 import com.clock.bean.Type;
 import com.clock.bean.po.TypePO;
 import com.clock.service.TypeService;
