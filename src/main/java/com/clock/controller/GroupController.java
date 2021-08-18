@@ -2,6 +2,7 @@ package com.clock.controller;
 
 import com.clock.bean.Groop;
 import com.clock.bean.po.GroopPO;
+import com.clock.service.AddGroupService;
 import com.clock.service.GroupService;
 import com.clock.util.ApiRes;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class GroupController {
     @Autowired
     private GroupService groupService;
 
+    @Autowired
+    private AddGroupService addGroupService;
+
     @PostMapping("/selectAllGroups")
     public ApiRes selectAllGroups(@RequestBody GroopPO po){
         return groupService.selectAllGroups(po);
@@ -25,4 +29,15 @@ public class GroupController {
     public ApiRes updateGroup(@RequestBody Groop group){
         return groupService.updateGroup(group);
     }
+
+    @PostMapping("/userAddGroup")
+    public ApiRes userAddGroup(@RequestBody Groop group) {
+        return groupService.userAddGroup(group);
+    }
+
+    @RequestMapping("/selectMyGroups")
+    public ApiRes selectMyGroups(Integer uid) {
+        return addGroupService.selectMyGroups(uid);
+    }
+
 }

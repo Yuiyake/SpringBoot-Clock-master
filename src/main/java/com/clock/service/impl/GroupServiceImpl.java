@@ -40,15 +40,11 @@ public class GroupServiceImpl implements GroupService {
         return ApiRes.ok("success");
     }
 
-//    用户加入小组
-    @Override
-    public ApiRes userJoinGroup(Integer gid, Integer uid) {
-        return null;
-    }
 
 //    用户创建小组
     @Override
     public ApiRes userAddGroup(Groop groop) {
-        return null;
+        groupMapper.insertSelective(groop);
+        return ApiRes.ok("success");
     }
 }
