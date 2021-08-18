@@ -5,6 +5,5 @@ import lombok.Data;
 
 @Data
 public class DynamicBO extends Dynamic {
-    private Integer tid;
-    private Integer uid;
+    private String username;
 }

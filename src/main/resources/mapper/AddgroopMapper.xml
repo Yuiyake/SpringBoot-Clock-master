@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.clock.dao.GroopMapper">
-  <resultMap id="BaseResultMap" type="com.clock.bean.Groop">
-    <id column="gid" jdbcType="INTEGER" property="gid" />
-    <result column="gname" jdbcType="VARCHAR" property="gname" />
-    <result column="clocktype" jdbcType="VARCHAR" property="clocktype" />
-    <result column="gnum" jdbcType="INTEGER" property="gnum" />
-    <result column="clocknum" jdbcType="INTEGER" property="clocknum" />
+<mapper namespace="com.clock.dao.AddgroopMapper">
+  <resultMap id="BaseResultMap" type="com.clock.bean.Addgroop">
+    <result column="gid" jdbcType="INTEGER" property="gid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="uclockstate" jdbcType="VARCHAR" property="uclockstate" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -67,15 +65,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    gid, gname, clocktype, gnum, clocknum
+    gid, uid, uclockstate
   </sql>
-  <select id="selectByExample" parameterType="com.clock.bean.GroopExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.clock.bean.AddgroopExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from groop
+    from addgroop
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -83,91 +81,58 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from groop
-    where gid = #{gid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from groop
-    where gid = #{gid,jdbcType=INTEGER}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.clock.bean.GroopExample">
-    delete from groop
+  <delete id="deleteByExample" parameterType="com.clock.bean.AddgroopExample">
+    delete from addgroop
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.clock.bean.Groop">
+  <insert id="insert" parameterType="com.clock.bean.Addgroop">
     <selectKey keyProperty="gid" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into groop (gname, clocktype, gnum, 
-      clocknum)
-    values (#{gname,jdbcType=VARCHAR}, #{clocktype,jdbcType=VARCHAR}, #{gnum,jdbcType=INTEGER}, 
-      #{clocknum,jdbcType=INTEGER})
+    insert into addgroop (uid, uclockstate)
+    values (#{uid,jdbcType=INTEGER}, #{uclockstate,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.clock.bean.Groop">
+  <insert id="insertSelective" parameterType="com.clock.bean.Addgroop">
     <selectKey keyProperty="gid" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into groop
+    insert into addgroop
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="gname != null">
-        gname,
+      <if test="uid != null">
+        uid,
       </if>
-      <if test="clocktype != null">
-        clocktype,
-      </if>
-      <if test="gnum != null">
-        gnum,
-      </if>
-      <if test="clocknum != null">
-        clocknum,
+      <if test="uclockstate != null">
+        uclockstate,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="gname != null">
-        #{gname,jdbcType=VARCHAR},
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
       </if>
-      <if test="clocktype != null">
-        #{clocktype,jdbcType=VARCHAR},
-      </if>
-      <if test="gnum != null">
-        #{gnum,jdbcType=INTEGER},
-      </if>
-      <if test="clocknum != null">
-        #{clocknum,jdbcType=INTEGER},
+      <if test="uclockstate != null">
+        #{uclockstate,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.clock.bean.GroopExample" resultType="java.lang.Long">
-    select count(*) from groop
+  <select id="countByExample" parameterType="com.clock.bean.AddgroopExample" resultType="java.lang.Long">
+    select count(*) from addgroop
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-    <select id="selectAllGroup" resultType="com.clock.bean.Groop">
-      select * from groop
-    </select>
-    <update id="updateByExampleSelective" parameterType="map">
-    update groop
+  <update id="updateByExampleSelective" parameterType="map">
+    update addgroop
     <set>
       <if test="record.gid != null">
         gid = #{record.gid,jdbcType=INTEGER},
       </if>
-      <if test="record.gname != null">
-        gname = #{record.gname,jdbcType=VARCHAR},
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=INTEGER},
       </if>
-      <if test="record.clocktype != null">
-        clocktype = #{record.clocktype,jdbcType=VARCHAR},
-      </if>
-      <if test="record.gnum != null">
-        gnum = #{record.gnum,jdbcType=INTEGER},
-      </if>
-      <if test="record.clocknum != null">
-        clocknum = #{record.clocknum,jdbcType=INTEGER},
+      <if test="record.uclockstate != null">
+        uclockstate = #{record.uclockstate,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -175,40 +140,12 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update groop
+    update addgroop
     set gid = #{record.gid,jdbcType=INTEGER},
-      gname = #{record.gname,jdbcType=VARCHAR},
-      clocktype = #{record.clocktype,jdbcType=VARCHAR},
-      gnum = #{record.gnum,jdbcType=INTEGER},
-      clocknum = #{record.clocknum,jdbcType=INTEGER}
+      uid = #{record.uid,jdbcType=INTEGER},
+      uclockstate = #{record.uclockstate,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.clock.bean.Groop">
-    update groop
-    <set>
-      <if test="gname != null">
-        gname = #{gname,jdbcType=VARCHAR},
-      </if>
-      <if test="clocktype != null">
-        clocktype = #{clocktype,jdbcType=VARCHAR},
-      </if>
-      <if test="gnum != null">
-        gnum = #{gnum,jdbcType=INTEGER},
-      </if>
-      <if test="clocknum != null">
-        clocknum = #{clocknum,jdbcType=INTEGER},
-      </if>
-    </set>
-    where gid = #{gid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.clock.bean.Groop">
-    update groop
-    set gname = #{gname,jdbcType=VARCHAR},
-      clocktype = #{clocktype,jdbcType=VARCHAR},
-      gnum = #{gnum,jdbcType=INTEGER},
-      clocknum = #{clocknum,jdbcType=INTEGER}
-    where gid = #{gid,jdbcType=INTEGER}
   </update>
 </mapper>

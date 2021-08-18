@@ -22,8 +22,6 @@ public interface GroopMapper {
 
     Groop selectByPrimaryKey(Integer gid);
 
-    List<Groop> selectAllGroup(GroopPO po);
-
     int updateByExampleSelective(@Param("record") Groop record, @Param("example") GroopExample example);
 
     int updateByExample(@Param("record") Groop record, @Param("example") GroopExample example);
@@ -31,4 +29,6 @@ public interface GroopMapper {
     int updateByPrimaryKeySelective(Groop record);
 
     int updateByPrimaryKey(Groop record);
+
+    List<Groop> selectAllGroup(GroopPO po);
 }
