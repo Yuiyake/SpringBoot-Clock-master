@@ -21,4 +21,6 @@ public interface AddgroopMapper {
     int updateByExample(@Param("record") Addgroop record, @Param("example") AddgroopExample example);
 
     List<Addgroop> selectMyGroups(Integer uid);
+
+    int insertGroup(Integer uid, Integer gid);
 }

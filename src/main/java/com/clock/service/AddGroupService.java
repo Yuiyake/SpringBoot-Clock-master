@@ -10,7 +10,7 @@ public interface AddGroupService {
     ApiRes selectMyGroups(Integer uid);
 
 //    ApiRes userJoinGroup(Integer gid, Integer uid);
-    ApiRes userJoinGroup(Addgroop addgroop);
+    ApiRes userJoinGroup(Integer uid, Integer gid);
 
 
 }

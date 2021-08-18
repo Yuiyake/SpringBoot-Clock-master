@@ -1,5 +1,6 @@
 package com.clock.controller;
 
+import com.clock.bean.Addgroop;
 import com.clock.bean.Groop;
 import com.clock.bean.po.GroopPO;
 import com.clock.service.AddGroupService;
@@ -39,5 +40,11 @@ public class GroupController {
     public ApiRes selectMyGroups(Integer uid) {
         return addGroupService.selectMyGroups(uid);
     }
+
+    @PostMapping("/userJoinGroup")
+    public ApiRes userJoinGroup(Integer gid, Integer uid) {
+        return addGroupService.userJoinGroup(uid, gid);
+    }
+
 
 }

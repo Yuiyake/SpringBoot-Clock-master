@@ -116,6 +116,10 @@
       </if>
     </trim>
   </insert>
+  <insert id="insertGroup" parameterType="com.clock.bean.Addgroop">
+    insert into addgroop (gid, uid, uclockstate)
+    values (#{gid}, #{uid}, '0')
+  </insert>
   <select id="countByExample" parameterType="com.clock.bean.AddgroopExample" resultType="java.lang.Long">
     select count(*) from addgroop
     <if test="_parameter != null">

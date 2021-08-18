@@ -23,8 +23,8 @@ public class AddGroupServiceImpl implements AddGroupService {
 
     //    用户加入小组
     @Override
-    public ApiRes userJoinGroup(Addgroop addgroop) {
-        addgroopMapper.insert(addgroop);
+    public ApiRes userJoinGroup(Integer uid, Integer gid) {
+        addgroopMapper.insertGroup(uid, gid);
         return ApiRes.ok("success");
     }
 }
