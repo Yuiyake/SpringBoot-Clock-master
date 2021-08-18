@@ -46,5 +46,10 @@ public class GroupController {
         return addGroupService.userJoinGroup(uid, gid);
     }
 
+    @RequestMapping("/changeGnum")
+    public ApiRes changeGnum(Integer gid){
+        return groupService.changeGroupNum(gid);
+    }
+
 
 }

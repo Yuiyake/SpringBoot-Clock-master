@@ -44,7 +44,13 @@ public class GroupServiceImpl implements GroupService {
 //    用户创建小组
     @Override
     public ApiRes userAddGroup(Groop groop) {
-        groupMapper.insertSelective(groop);
+        groupMapper.userCreateGroup(groop);
+        return ApiRes.ok("success");
+    }
+
+    @Override
+    public ApiRes changeGroupNum(Integer gid) {
+        groupMapper.changeGnum(gid);
         return ApiRes.ok("success");
     }
 }

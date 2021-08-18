@@ -31,4 +31,8 @@ public interface GroopMapper {
     int updateByPrimaryKey(Groop record);
 
     List<Groop> selectAllGroup(GroopPO po);
+
+    int changeGnum(Integer gid);
+
+    int userCreateGroup(Groop groop);
 }

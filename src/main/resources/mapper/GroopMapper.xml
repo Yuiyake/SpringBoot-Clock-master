@@ -142,6 +142,10 @@
       </if>
     </trim>
   </insert>
+  <insert id="userCreateGroup" parameterType="com.clock.bean.Groop">
+    insert into groop (gid, gname, clocktype, gnum, clocknum)
+    values (#{gid}, #{gname}, #{clocktype}, 1, '0')
+  </insert>
   <select id="countByExample" parameterType="com.clock.bean.GroopExample" resultType="java.lang.Long">
     select count(*) from groop
     <if test="_parameter != null">
@@ -211,4 +215,9 @@
       clocknum = #{clocknum,jdbcType=INTEGER}
     where gid = #{gid,jdbcType=INTEGER}
   </update>
+    <update id="changeGnum" parameterType="com.clock.bean.Groop">
+      update groop
+      set gnum = gnum+1
+      where gid = #{gid}
+    </update>
 </mapper>
