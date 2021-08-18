@@ -23,4 +23,6 @@ public interface AddgroopMapper {
     List<Addgroop> selectMyGroups(Integer uid);
 
     int insertGroup(Integer uid, Integer gid);
+
+    int userQuitGroup(Integer uid, Integer gid);
 }

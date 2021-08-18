@@ -51,5 +51,14 @@ public class GroupController {
         return groupService.changeGroupNum(gid);
     }
 
+    @RequestMapping("/userQuitGroup")
+    public ApiRes userQuitGroup(Integer uid, Integer gid){
+        return addGroupService.userQuitGroup(uid, gid);
+    }
+
+    @RequestMapping("/userDeleteGnum")
+    public ApiRes userDeleteGnum(Integer gid){
+        return groupService.userQuitGroup(gid);
+    }
 
 }

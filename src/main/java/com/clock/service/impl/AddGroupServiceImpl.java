@@ -21,6 +21,12 @@ public class AddGroupServiceImpl implements AddGroupService {
         return ApiRes.ok(list);
     }
 
+    @Override
+    public ApiRes userQuitGroup(Integer uid, Integer gid) {
+        addgroopMapper.userQuitGroup(uid, gid);
+        return ApiRes.ok("success");
+    }
+
     //    用户加入小组
     @Override
     public ApiRes userJoinGroup(Integer uid, Integer gid) {

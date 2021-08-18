@@ -87,6 +87,11 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+  <delete id="userQuitGroup" parameterType="com.clock.bean.AddgroopExample">
+    delete from addgroop
+    where uid = #{uid}
+      and gid = #{gid}
+  </delete>
   <insert id="insert" parameterType="com.clock.bean.Addgroop">
     <selectKey keyProperty="gid" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()

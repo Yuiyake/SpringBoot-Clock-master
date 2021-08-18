@@ -34,5 +34,7 @@ public interface GroopMapper {
 
     int changeGnum(Integer gid);
 
+    int quitGnum(Integer gid);
+
     int userCreateGroup(Groop groop);
 }

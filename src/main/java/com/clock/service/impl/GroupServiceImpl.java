@@ -49,6 +49,12 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
+    public ApiRes userQuitGroup(Integer gid) {
+        groupMapper.quitGnum(gid);
+        return ApiRes.ok("success");
+    }
+
+    @Override
     public ApiRes changeGroupNum(Integer gid) {
         groupMapper.changeGnum(gid);
         return ApiRes.ok("success");

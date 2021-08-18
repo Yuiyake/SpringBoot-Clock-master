@@ -10,5 +10,6 @@ public interface GroupService {
     ApiRes selectAllGroups(GroopPO param);
     ApiRes updateGroup(Groop groop);
     ApiRes userAddGroup(Groop groop);
+    ApiRes userQuitGroup(Integer gid);
     ApiRes changeGroupNum(Integer gid);
 }
