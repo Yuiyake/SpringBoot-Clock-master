@@ -155,6 +155,9 @@
     <select id="selectAllGroup" resultType="com.clock.bean.Groop">
       select * from groop
     </select>
+    <select id="selectBarGroup" resultType="com.clock.bean.Groop">
+      select * from groop
+    </select>
     <update id="updateByExampleSelective" parameterType="map">
     update groop
     <set>

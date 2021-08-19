@@ -3,14 +3,12 @@ package com.clock.controller;
 import com.clock.bean.Addgroop;
 import com.clock.bean.Groop;
 import com.clock.bean.po.GroopPO;
+import com.clock.bean.vo.BarVO;
 import com.clock.service.AddGroupService;
 import com.clock.service.GroupService;
 import com.clock.util.ApiRes;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/group")
@@ -59,6 +57,11 @@ public class GroupController {
     @RequestMapping("/userDeleteGnum")
     public ApiRes userDeleteGnum(Integer gid){
         return groupService.userQuitGroup(gid);
+    }
+
+    @GetMapping("/barvo")
+    public BarVO barVO() {
+        return groupService.barVOList();
     }
 
 }

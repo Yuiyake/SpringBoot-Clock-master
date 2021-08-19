@@ -32,6 +32,8 @@ public interface GroopMapper {
 
     List<Groop> selectAllGroup(GroopPO po);
 
+    List<Groop> selectBarGroup();
+
     int changeGnum(Integer gid);
 
     int quitGnum(Integer gid);
