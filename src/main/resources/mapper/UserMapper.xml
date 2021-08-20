@@ -346,4 +346,9 @@
     set state = '0'
     where id = #{id}
     </update>
+  <update id="updateUserImg">
+    update user
+    set uavg = #{uavg,jdbcType=VARCHAR}
+    where id = #{id}
+  </update>
 </mapper>

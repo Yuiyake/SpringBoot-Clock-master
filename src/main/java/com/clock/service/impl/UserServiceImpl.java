@@ -117,4 +117,10 @@ public class UserServiceImpl implements UserService {
         userMapper.recoveryUser(id);
         return ApiRes.ok("success");
     }
+
+    @Override
+    public ApiRes setUserAvg(User user) {
+        userMapper.updateUserImg(user);
+        return ApiRes.ok("success");
+    }
 }

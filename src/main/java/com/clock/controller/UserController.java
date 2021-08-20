@@ -1,14 +1,24 @@
 package com.clock.controller;
 
+import cn.hutool.core.img.Img;
 import com.clock.bean.User;
 import com.clock.bean.po.LoginPO;
 import com.clock.bean.po.UserPO;
 import com.clock.service.UserService;
 import com.clock.util.ApiRes;
+import com.clock.bean.path;
+import com.clock.util.ImgRegulation;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/user")
@@ -64,4 +74,47 @@ public class UserController {
     public ApiRes recoveryUser(Integer id){
         return userService.recoveryUser(id);
     }
+
+    @RequestMapping("/imgStr")
+    @ApiOperation("保存用户图片")
+    public void imgStr(@RequestParam MultipartFile file, @RequestBody User user) throws IOException {
+        if (file.equals("")){return;}
+        Date date = new Date();
+        String dateForm = new SimpleDateFormat("yyyy-MM-dd").format(date);
+        String casePath = "C:\\Users\\Lenovo\\Desktop\\study\\java\\javaee\\大作业\\Clock-Project\\" +
+                "SpringBoot-Clock-master\\src\\main\\java\\com\\clock\\util\\img"+dateForm;
+//        String casePath = path.getFileimg()+dateForm;
+        String imgFormat = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+
+//        简单验证图片
+        ImgRegulation regulation = new ImgRegulation();
+        try {
+            boolean ifimg = regulation.VERIFY(imgFormat);
+            if (false == ifimg)
+                return;
+        } catch (Exception e){
+            return;
+        }
+
+        //  判断文件是否存在
+        File f = new File(casePath);
+        try {
+            if (!f.exists()){
+                f.mkdirs();
+            }
+        }catch (Exception e){
+            return;
+        }
+
+//        随机生成图片名字
+        String name = UUID.randomUUID().toString()+imgFormat;
+        file.transferTo(new File(casePath+"\\"+name));
+        //拼接要保存在数据中的图片地址
+        //dateForm 这是动态的文件夹所以要和地址一起存入数据库中
+        //user 为@RequestMapping("/user")
+        String urlImg = "http://localhost:8080/" + "user/show?fileUrl=" + dateForm + "/" + name;
+        user.setUavg(urlImg);
+        userService.setUserAvg(user);
+    }
+
 }

@@ -24,4 +24,6 @@ public interface UserService {
 
     ApiRes recoveryUser(Integer id);
 
+    ApiRes setUserAvg(User user);
+
 }

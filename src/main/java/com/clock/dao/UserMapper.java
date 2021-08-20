@@ -42,4 +42,6 @@ public interface UserMapper {
     void updateByExample(User user);
 
     List<UserBO> selectForbidUser(UserPO po);
+
+    int updateUserImg(User user);
 }
