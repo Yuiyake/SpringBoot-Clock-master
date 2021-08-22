@@ -23,6 +23,8 @@ public interface UserMapper {
 
     User selectByPrimaryKey(Integer id);
 
+    List<User> selectByUserId(Integer id);
+
     int forbidUser(Integer id);
 
     int recoveryUser(Integer id);

@@ -1,8 +1,6 @@
 package com.clock.service;
 
 import com.clock.bean.Reply;
-import com.clock.bean.Type;
-import com.clock.bean.po.TypePO;
 import com.clock.util.ApiRes;
 import org.springframework.stereotype.Service;
 

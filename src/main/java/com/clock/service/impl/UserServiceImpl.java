@@ -123,4 +123,10 @@ public class UserServiceImpl implements UserService {
         userMapper.updateUserImg(user);
         return ApiRes.ok("success");
     }
+
+    @Override
+    public ApiRes selectUserById(Integer id) {
+        List<User> list = userMapper.selectByUserId(id);
+        return ApiRes.ok(list);
+    }
 }

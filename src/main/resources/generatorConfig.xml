@@ -39,8 +39,8 @@
         </javaClientGenerator>
 
         <!-- 映射配置 -->
-        <table tableName="addgroop" >
-            <generatedKey column="gid" sqlStatement="MySql" identity="true" />
+        <table tableName="reply" >
+            <generatedKey column="rid" sqlStatement="MySql" identity="true" />
         </table>
 
         <!--

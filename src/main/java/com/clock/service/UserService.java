@@ -26,4 +26,6 @@ public interface UserService {
 
     ApiRes setUserAvg(User user);
 
+    ApiRes selectUserById(Integer id);
+
 }

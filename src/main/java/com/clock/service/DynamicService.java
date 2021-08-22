@@ -12,6 +12,8 @@ public interface DynamicService {
 
     ApiRes deleteDynamic(Integer did);
 
-    ApiRes selectThisDynamic(Integer uid);
+    ApiRes selectUserDynamic(Integer uid);
+
+    ApiRes selectThisDynamic(Integer did);
 
 }

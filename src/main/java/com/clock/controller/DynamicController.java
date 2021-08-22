@@ -22,9 +22,14 @@ public class DynamicController {
         return dynamicService.deleteDynamic(did);
     }
 
+    @RequestMapping("/selectUserDynamic")
+    public ApiRes selectUserDynamic(Integer uid){
+        return dynamicService.selectUserDynamic(uid);
+    }
+
     @RequestMapping("/selectThisDynamic")
-    public ApiRes selectThisDynamic(Integer uid){
-        return dynamicService.selectThisDynamic(uid);
+    public ApiRes selectThisDynamic(Integer did){
+        return dynamicService.selectThisDynamic(did);
     }
 
 }

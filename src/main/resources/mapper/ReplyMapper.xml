@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.clock.bean.Reply">
     <id column="rid" jdbcType="INTEGER" property="rid" />
     <result column="did" jdbcType="INTEGER" property="did" />
+    <result column="fid" jdbcType="INTEGER" property="fid" />
     <result column="fromuid" jdbcType="INTEGER" property="fromuid" />
     <result column="touid" jdbcType="INTEGER" property="touid" />
     <result column="rTime" jdbcType="TIMESTAMP" property="rtime" />
@@ -70,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    rid, did, fromuid, touid, rTime
+    rid, did, fid, fromuid, touid, rTime
   </sql>
   <sql id="Blob_Column_List">
     rContents
@@ -127,10 +128,12 @@
     <selectKey keyProperty="rid" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into reply (did, fromuid, touid, 
-      rTime, rContents)
-    values (#{did,jdbcType=INTEGER}, #{fromuid,jdbcType=INTEGER}, #{touid,jdbcType=INTEGER}, 
-      #{rtime,jdbcType=TIMESTAMP}, #{rcontents,jdbcType=LONGVARCHAR})
+    insert into reply (did, fid, fromuid, 
+      touid, rTime, rContents
+      )
+    values (#{did,jdbcType=INTEGER}, #{fid,jdbcType=INTEGER}, #{fromuid,jdbcType=INTEGER}, 
+      #{touid,jdbcType=INTEGER}, #{rtime,jdbcType=TIMESTAMP}, #{rcontents,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.clock.bean.Reply">
     <selectKey keyProperty="rid" order="AFTER" resultType="java.lang.Integer">
@@ -140,6 +143,9 @@
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="did != null">
         did,
+      </if>
+      <if test="fid != null">
+        fid,
       </if>
       <if test="fromuid != null">
         fromuid,
@@ -157,6 +163,9 @@
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="did != null">
         #{did,jdbcType=INTEGER},
+      </if>
+      <if test="fid != null">
+        #{fid,jdbcType=INTEGER},
       </if>
       <if test="fromuid != null">
         #{fromuid,jdbcType=INTEGER},
@@ -178,12 +187,10 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <select id="selectUserReply" resultType="com.clock.bean.Reply">
-    select *
-    from reply
-    where did = #{did}
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
+    <select id="selectUserReply" resultType="com.clock.bean.Reply">
+      select * from reply where did=#{did}
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
     update reply
     <set>
       <if test="record.rid != null">
@@ -191,6 +198,9 @@
       </if>
       <if test="record.did != null">
         did = #{record.did,jdbcType=INTEGER},
+      </if>
+      <if test="record.fid != null">
+        fid = #{record.fid,jdbcType=INTEGER},
       </if>
       <if test="record.fromuid != null">
         fromuid = #{record.fromuid,jdbcType=INTEGER},
@@ -213,6 +223,7 @@
     update reply
     set rid = #{record.rid,jdbcType=INTEGER},
       did = #{record.did,jdbcType=INTEGER},
+      fid = #{record.fid,jdbcType=INTEGER},
       fromuid = #{record.fromuid,jdbcType=INTEGER},
       touid = #{record.touid,jdbcType=INTEGER},
       rTime = #{record.rtime,jdbcType=TIMESTAMP},
@@ -225,6 +236,7 @@
     update reply
     set rid = #{record.rid,jdbcType=INTEGER},
       did = #{record.did,jdbcType=INTEGER},
+      fid = #{record.fid,jdbcType=INTEGER},
       fromuid = #{record.fromuid,jdbcType=INTEGER},
       touid = #{record.touid,jdbcType=INTEGER},
       rTime = #{record.rtime,jdbcType=TIMESTAMP}
@@ -237,6 +249,9 @@
     <set>
       <if test="did != null">
         did = #{did,jdbcType=INTEGER},
+      </if>
+      <if test="fid != null">
+        fid = #{fid,jdbcType=INTEGER},
       </if>
       <if test="fromuid != null">
         fromuid = #{fromuid,jdbcType=INTEGER},
@@ -256,6 +271,7 @@
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.clock.bean.Reply">
     update reply
     set did = #{did,jdbcType=INTEGER},
+      fid = #{fid,jdbcType=INTEGER},
       fromuid = #{fromuid,jdbcType=INTEGER},
       touid = #{touid,jdbcType=INTEGER},
       rTime = #{rtime,jdbcType=TIMESTAMP},
@@ -265,6 +281,7 @@
   <update id="updateByPrimaryKey" parameterType="com.clock.bean.Reply">
     update reply
     set did = #{did,jdbcType=INTEGER},
+      fid = #{fid,jdbcType=INTEGER},
       fromuid = #{fromuid,jdbcType=INTEGER},
       touid = #{touid,jdbcType=INTEGER},
       rTime = #{rtime,jdbcType=TIMESTAMP}

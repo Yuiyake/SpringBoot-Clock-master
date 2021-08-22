@@ -4,6 +4,7 @@ import com.clock.bean.Dynamic;
 import com.clock.bean.bo.DynamicBO;
 import com.clock.bean.po.DynamicPO;
 import com.clock.dao.DynamicMapper;
+import com.clock.dao.ReplyMapper;
 import com.clock.service.DynamicService;
 import com.clock.util.ApiRes;
 import com.github.pagehelper.PageHelper;
@@ -12,12 +13,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class DynamicServiceImpl implements DynamicService {
 
     @Autowired
     private DynamicMapper dynamicMapper;
+
+    @Autowired
+     private ReplyMapper replyMapper;
 
     @Override
     public ApiRes selectAllDynamic(DynamicPO po) {
@@ -38,9 +43,21 @@ public class DynamicServiceImpl implements DynamicService {
     }
 
     @Override
-    public ApiRes selectThisDynamic(Integer uid) {
-        List<Dynamic> list = dynamicMapper.selectThisDynamic(uid); 
-        dynamicMapper.selectThisDynamic(uid);
+    public ApiRes selectUserDynamic(Integer uid) {
+        List<Dynamic> list = dynamicMapper.selectUserDynamic(uid);
+        dynamicMapper.selectUserDynamic(uid);
         return ApiRes.ok(list);
     }
+
+//    找出指定用户的单条动态
+    @Override
+    public ApiRes selectThisDynamic(Integer did) {
+        List<Dynamic> list = dynamicMapper.selectThisDynamic(did);
+        int fid = dynamicMapper.selectUidByDid(did);
+        // 获取list里的所有uid
+        List<Integer> zid = list.stream().map(Dynamic::getUid).collect(Collectors.toList());
+        boolean z = zid.get(0).equals(fid);
+        return ApiRes.ok(list);
+    }
+
 }

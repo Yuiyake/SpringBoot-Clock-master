@@ -1,6 +1,5 @@
 package com.clock.bean.vo;
 
-import com.clock.bean.Reply;
 import lombok.Data;
 
 import java.util.List;

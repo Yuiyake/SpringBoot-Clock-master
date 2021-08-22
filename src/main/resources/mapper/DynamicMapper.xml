@@ -193,11 +193,24 @@
       from dynamic d, user u
       where d.uid = u.id
     </select>
+
 <!--  新增查询指定用户的动态-->
-  <select id="selectThisDynamic" resultType="com.clock.bean.Dynamic">
+  <select id="selectUserDynamic" resultType="com.clock.bean.Dynamic">
     select *
     from dynamic
     where uid = #{uid}
+  </select>
+
+  <!--  新增查询指定用户的指定动态-->
+  <select id="selectThisDynamic" resultType="com.clock.bean.Dynamic">
+    select *
+    from dynamic
+    where did = #{did}
+  </select>
+  <select id="selectUidByDid" resultType="java.lang.Integer">
+    select uid
+    from dynamic
+    where did = #{did}
   </select>
 
   <update id="updateByExampleSelective" parameterType="map">

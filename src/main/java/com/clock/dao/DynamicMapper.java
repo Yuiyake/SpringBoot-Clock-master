@@ -25,7 +25,11 @@ public interface DynamicMapper {
 
     List<DynamicBO> selectAllDynamic(DynamicPO po);
 
-    List<Dynamic> selectThisDynamic(Integer uid);
+    List<Dynamic> selectUserDynamic(Integer uid);
+
+    List<Dynamic> selectThisDynamic(Integer did);
+
+    int selectUidByDid(Integer did);
 
     Dynamic selectByPrimaryKey(Integer did);
 

@@ -7,6 +7,8 @@ public class Reply {
 
     private Integer did;
 
+    private Integer fid;
+
     private Integer fromuid;
 
     private Integer touid;
@@ -29,6 +31,14 @@ public class Reply {
 
     public void setDid(Integer did) {
         this.did = did;
+    }
+
+    public Integer getFid() {
+        return fid;
+    }
+
+    public void setFid(Integer fid) {
+        this.fid = fid;
     }
 
     public Integer getFromuid() {

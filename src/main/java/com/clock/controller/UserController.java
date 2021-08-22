@@ -49,6 +49,12 @@ public class UserController {
         return userService.selectAllUser(po);
     }
 
+    @PostMapping("/selectUserById")
+    @ApiOperation("获取当前用户信息")
+    public ApiRes selectUserById(Integer id) {
+        return userService.selectUserById(id);
+    }
+
     @PostMapping("/selectForbidUser")
     @ApiOperation("获取所有禁用用户列表")
     public ApiRes selectForbidUser(@RequestBody UserPO po) {

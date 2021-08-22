@@ -92,9 +92,15 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
-    <include refid="Base_Column_List" />
+    *
     from user
     where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByUserId" resultMap="BaseResultMap">
+    SELECT u.*
+    from `user` u
+    where id = #{id}
   </select>
 
   <select id="selectAllUser" resultMap="BaseResultMap">
