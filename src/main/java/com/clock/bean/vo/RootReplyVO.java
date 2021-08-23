@@ -5,21 +5,13 @@ import lombok.Data;
 import java.util.Date;
 import java.util.List;
 
-// 子评论vo层
+// 父评论vo层
 @Data
-public class ReplyVO {
+public class RootReplyVO {
 
     private Integer rid;
 
     private Integer did;
-
-    public Integer getFid() {
-        return fid;
-    }
-
-    public void setFid(Integer fid) {
-        this.fid = fid;
-    }
 
     private Integer fid;
 
@@ -28,18 +20,6 @@ public class ReplyVO {
     private String fromname;
 
     private Integer touid;
-
-    private String toname;
-
-    public Date getrTime() {
-        return rTime;
-    }
-
-    public void setrTime(Date rTime) {
-        this.rTime = rTime;
-    }
-
-    private Date rTime;
 
     public Integer getRid() {
         return rid;
@@ -55,6 +35,14 @@ public class ReplyVO {
 
     public void setDid(Integer did) {
         this.did = did;
+    }
+
+    public Integer getFid() {
+        return fid;
+    }
+
+    public void setFid(Integer fid) {
+        this.fid = fid;
     }
 
     public Integer getFromuid() {
@@ -89,6 +77,13 @@ public class ReplyVO {
         this.toname = toname;
     }
 
+    public Date getrTime() {
+        return rTime;
+    }
+
+    public void setrTime(Date rTime) {
+        this.rTime = rTime;
+    }
 
     public String getrContents() {
         return rContents;
@@ -98,18 +93,32 @@ public class ReplyVO {
         this.rContents = rContents;
     }
 
+    public List<com.clock.bean.vo.ReplyVO> getReplyVO() {
+        return ReplyVO;
+    }
+
+    public void setReplyVO(List<com.clock.bean.vo.ReplyVO> replyVO) {
+        ReplyVO = replyVO;
+    }
+
+    private String toname;
+
+    private Date rTime;
+
     private String rContents;
 
-    public List<ReplyVO> getSonReply() {
-        return sonReply;
+    public List<RootReplyVO> getRootReplyVOS() {
+        return rootReplyVOS;
     }
 
-    public void setSonReply(List<ReplyVO> sonReply) {
-        this.sonReply = sonReply;
+    public void setRootReplyVOS(List<RootReplyVO> rootReplyVOS) {
+        this.rootReplyVOS = rootReplyVOS;
     }
 
-    private List<ReplyVO> sonReply;
+    //    存放父评论的集合
+    private List<RootReplyVO> rootReplyVOS;
 
-
+//    存放子评论的集合
+    private List<ReplyVO> ReplyVO;
 
 }

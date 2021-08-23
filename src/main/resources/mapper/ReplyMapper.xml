@@ -181,6 +181,17 @@
       </if>
     </trim>
   </insert>
+
+  <insert id="addRootComments" parameterType="com.clock.bean.vo.RootReplyVO">
+    insert into reply (rid,did,fid,fromuid,touid,rTime,rContents)
+    values(1,#{did},null,#{fromuid},#{touid},#{rTime},#{rContents})
+  </insert>
+
+  <insert id="addSonComments" parameterType="com.clock.bean.vo.ReplyVO">
+    insert into reply (rid,did,fid,fromuid,touid,rTime,rContents)
+    values(1,#{did},#{rid},#{fromuid},#{touid},#{rTime},#{rContents})
+  </insert>
+
   <select id="countByExample" parameterType="com.clock.bean.ReplyExample" resultType="java.lang.Long">
     select count(*) from reply
     <if test="_parameter != null">
@@ -188,9 +199,31 @@
     </if>
   </select>
     <select id="selectUserReply" resultType="com.clock.bean.Reply">
-      select * from reply where did=#{did}
+      select r.*
+      from reply r
+      where did=#{did}
     </select>
-    <update id="updateByExampleSelective" parameterType="map">
+
+
+  <select id="selectRootReply" resultType="com.clock.bean.vo.RootReplyVO">
+    select * from reply
+    where did = #{did}
+    and fid is null
+  </select>
+
+  <select id="selectSonReply" resultType="com.clock.bean.vo.ReplyVO">
+    select * from reply
+    where did = #{did}
+      and fid is not null
+  </select>
+  <select id="selectSonReplyByFid" resultType="com.clock.bean.vo.ReplyVO">
+    select *
+    from reply
+    where fid = #{fid}
+  </select>
+
+
+  <update id="updateByExampleSelective" parameterType="map">
     update reply
     <set>
       <if test="record.rid != null">

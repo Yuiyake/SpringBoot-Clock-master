@@ -1,6 +1,8 @@
 package com.clock.service.impl;
 
 import com.clock.bean.Reply;
+import com.clock.bean.vo.ReplyVO;
+import com.clock.bean.vo.RootReplyVO;
 import com.clock.dao.ReplyMapper;
 import com.clock.service.ReplyService;
 import com.clock.util.ApiRes;
@@ -16,6 +18,9 @@ public class ReplyServiceImpl implements ReplyService {
 
     @Override
     public ApiRes selectUserReply(Integer did) {
+        if (did==null || did.equals("")){
+            return ApiRes.fail("did为空值");
+        }
         List<Reply> list = replyMapper.selectUserReply(did);
         return ApiRes.ok(list);
     }
@@ -27,8 +32,28 @@ public class ReplyServiceImpl implements ReplyService {
     }
 
     @Override
-    public ApiRes addReply(Reply reply) {
-        replyMapper.insertSelective(reply);
-        return ApiRes.ok("success");
+    public ApiRes addRootReply(RootReplyVO rootReplyVO) {
+        List<RootReplyVO> list = replyMapper.addRootComments(rootReplyVO);
+        System.out.println(list);
+        return ApiRes.ok(list);
     }
+
+    @Override
+    public ApiRes addReply(ReplyVO replyVO) {
+        List<ReplyVO> list = replyMapper.addSonComments(replyVO);
+        return ApiRes.ok(list);
+    }
+
+    @Override
+    public List<RootReplyVO> selectRootReply(Integer did) {
+        List<RootReplyVO> list = replyMapper.selectRootReply(did);
+        return list;
+    }
+
+    @Override
+    public List<ReplyVO> selectSonReply(Integer did) {
+        List<ReplyVO> list = replyMapper.selectSonReply(did);
+        return list;
+    }
+
 }
