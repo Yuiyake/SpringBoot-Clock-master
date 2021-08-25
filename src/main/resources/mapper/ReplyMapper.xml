@@ -184,12 +184,12 @@
 
   <insert id="addRootComments" parameterType="com.clock.bean.vo.RootReplyVO">
     insert into reply (rid,did,fid,fromuid,touid,rTime,rContents)
-    values(1,#{did},null,#{fromuid},#{touid},#{rTime},#{rContents})
+    values(#{rid},#{did},null,#{fromuid},#{touid},#{rTime},#{rContents})
   </insert>
 
   <insert id="addSonComments" parameterType="com.clock.bean.vo.ReplyVO">
     insert into reply (rid,did,fid,fromuid,touid,rTime,rContents)
-    values(1,#{did},#{rid},#{fromuid},#{touid},#{rTime},#{rContents})
+    values(#{rid},#{did},#{rid},#{fromuid},#{touid},#{rTime},#{rContents})
   </insert>
 
   <select id="countByExample" parameterType="com.clock.bean.ReplyExample" resultType="java.lang.Long">
@@ -198,15 +198,16 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <select id="selectUserReply" resultMap="Comments">
+
+  <select id="selectUserReply" resultMap="Comments" parameterType="com.clock.bean.vo.RootReplyVO">
     select r.*
     from reply r
     where did=#{did}
     and fid is null
   </select>
-  <resultMap id="Comments" type="com.clock.bean.Reply">
+  <resultMap id="Comments" type="com.clock.bean.vo.RootReplyVO">
     <result property="rid" column="rid"/>
-    <collection property="listCommentsReply" column="did,rid" javaType="ArrayList" ofType="com.clock.bean.Reply" select="selectSonReply"></collection>
+    <collection property="replyVOS" column="did,rid" javaType="ArrayList" ofType="com.clock.bean.vo.ReplyVO" select="selectSonReply"></collection>
   </resultMap>
 
 

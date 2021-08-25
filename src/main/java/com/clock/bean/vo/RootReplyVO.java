@@ -17,7 +17,7 @@ public class RootReplyVO {
 
     private Integer fromuid;
 
-    private String fromname;
+//    private String fromname;
 
     private Integer touid;
 
@@ -53,13 +53,13 @@ public class RootReplyVO {
         this.fromuid = fromuid;
     }
 
-    public String getFromname() {
-        return fromname;
-    }
-
-    public void setFromname(String fromname) {
-        this.fromname = fromname;
-    }
+//    public String getFromname() {
+//        return fromname;
+//    }
+//
+//    public void setFromname(String fromname) {
+//        this.fromname = fromname;
+//    }
 
     public Integer getTouid() {
         return touid;
@@ -69,13 +69,13 @@ public class RootReplyVO {
         this.touid = touid;
     }
 
-    public String getToname() {
-        return toname;
-    }
-
-    public void setToname(String toname) {
-        this.toname = toname;
-    }
+//    public String getToname() {
+//        return toname;
+//    }
+//
+//    public void setToname(String toname) {
+//        this.toname = toname;
+//    }
 
     public Date getrTime() {
         return rTime;
@@ -93,32 +93,23 @@ public class RootReplyVO {
         this.rContents = rContents;
     }
 
-    public List<com.clock.bean.vo.ReplyVO> getReplyVO() {
-        return ReplyVO;
-    }
 
-    public void setReplyVO(List<com.clock.bean.vo.ReplyVO> replyVO) {
-        ReplyVO = replyVO;
-    }
-
-    private String toname;
+//    private String toname;
 
     private Date rTime;
 
     private String rContents;
 
-    public List<RootReplyVO> getRootReplyVOS() {
-        return rootReplyVOS;
+
+    public List<ReplyVO> getReplyVOS() {
+        return replyVOS;
     }
 
-    public void setRootReplyVOS(List<RootReplyVO> rootReplyVOS) {
-        this.rootReplyVOS = rootReplyVOS;
+    public void setReplyVOS(List<ReplyVO> replyVOS) {
+        this.replyVOS = replyVOS;
     }
 
-    //    存放父评论的集合
-    private List<RootReplyVO> rootReplyVOS;
-
-//    存放子评论的集合
-    private List<ReplyVO> ReplyVO;
+    //    存放子评论的集合
+    private List<ReplyVO> replyVOS;
 
 }
