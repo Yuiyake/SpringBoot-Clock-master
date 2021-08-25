@@ -207,7 +207,7 @@
   </select>
   <resultMap id="Comments" type="com.clock.bean.vo.RootReplyVO">
     <result property="rid" column="rid"/>
-    <collection property="replyVOS" column="did,rid" javaType="ArrayList" ofType="com.clock.bean.vo.ReplyVO" select="selectSonReply"></collection>
+    <collection property="replyVOS" column="rid" javaType="ArrayList" ofType="com.clock.bean.vo.ReplyVO" select="selectSonReply"></collection>
   </resultMap>
 
 
@@ -219,8 +219,7 @@
 
   <select id="selectSonReply" resultType="com.clock.bean.Reply">
     select * from reply
-    where did = #{did}
-      and fid =#{rid}
+    where fid =#{rid}
   </select>
   <select id="selectSonReplyByFid" resultType="com.clock.bean.vo.ReplyVO">
     select *
