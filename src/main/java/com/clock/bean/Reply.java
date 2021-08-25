@@ -1,6 +1,9 @@
 package com.clock.bean;
 
+import com.clock.bean.vo.ReplyVO;
+
 import java.util.Date;
+import java.util.List;
 
 public class Reply {
     private Integer rid;
@@ -15,7 +18,9 @@ public class Reply {
 
     private Date rtime;
 
-    private String rcontents;
+    private String        rcontents;
+
+    private List<ReplyVO> listCommentsReply;
 
     public Integer getRid() {
         return rid;
@@ -72,4 +77,5 @@ public class Reply {
     public void setRcontents(String rcontents) {
         this.rcontents = rcontents == null ? null : rcontents.trim();
     }
+
 }

@@ -198,11 +198,16 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-    <select id="selectUserReply" resultType="com.clock.bean.Reply">
-      select r.*
-      from reply r
-      where did=#{did}
-    </select>
+  <select id="selectUserReply" resultMap="Comments">
+    select r.*
+    from reply r
+    where did=#{did}
+    and fid is null
+  </select>
+  <resultMap id="Comments" type="com.clock.bean.Reply">
+    <result property="rid" column="rid"/>
+    <collection property="listCommentsReply" column="did,rid" javaType="ArrayList" ofType="com.clock.bean.Reply" select="selectSonReply"></collection>
+  </resultMap>
 
 
   <select id="selectRootReply" resultType="com.clock.bean.vo.RootReplyVO">
@@ -211,10 +216,10 @@
     and fid is null
   </select>
 
-  <select id="selectSonReply" resultType="com.clock.bean.vo.ReplyVO">
+  <select id="selectSonReply" resultType="com.clock.bean.Reply">
     select * from reply
     where did = #{did}
-      and fid is not null
+      and fid =#{rid}
   </select>
   <select id="selectSonReplyByFid" resultType="com.clock.bean.vo.ReplyVO">
     select *

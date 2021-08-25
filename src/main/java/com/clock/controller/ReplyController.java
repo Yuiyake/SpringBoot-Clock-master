@@ -1,6 +1,5 @@
 package com.clock.controller;
 
-import com.clock.bean.Reply;
 import com.clock.bean.vo.ReplyVO;
 import com.clock.bean.vo.RootReplyVO;
 import com.clock.service.ReplyService;
@@ -12,11 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/reply")
@@ -28,31 +23,31 @@ public class ReplyController {
     @RequestMapping("/selectUserReply")
     @ApiOperation("获取当前动态的评论")
     public ApiRes selectUserReply(Integer did){
-        RootReplyVO volist = new RootReplyVO();
+//        RootReplyVO volist = new RootReplyVO();
 //        获取所有一二级评论，分开数组存放
-        List<RootReplyVO> RootReplys = replyService.selectRootReply(did);
-        List<ReplyVO> SonReplys = replyService.selectSonReply(did);
+//        List<RootReplyVO> RootReplys = replyService.selectRootReply(did);
+//        List<ReplyVO> SonReplys = replyService.selectSonReply(did);
 
-        List<ReplyVO> RealSonReplys = new ArrayList();
+//        List<ReplyVO> RealSonReplys = new ArrayList();
 //        取出一级评论的所有rid作为集合
-        List<Integer> ridList = RootReplys.stream().map(RootReplyVO::getRid).collect(Collectors.toList());
-        List<Integer> fidList = SonReplys.stream().map(ReplyVO::getFid).collect(Collectors.toList());
+//        List<Integer> ridList = RootReplys.stream().map(RootReplyVO::getRid).collect(Collectors.toList());
+//        List<Integer> fidList = SonReplys.stream().map(ReplyVO::getFid).collect(Collectors.toList());
 
-        for (int i=0; i<ridList.size(); i++){
-            for (int j=0; j<fidList.size(); j++){
-                if (ridList.get(i).equals(fidList.get(j))){
-//                    获取符合条件的fid，调用sql查询出相应的二级评论值,把结果存进二级评论对象数组里。
-                    int realSec = fidList.get(j);
-                    List<ReplyVO> list = replyService.selectSonReply(realSec);
-                    ReplyVO replyVO = new ReplyVO();
-                    replyVO.setSonReply(list);
-                    RealSonReplys.add(replyVO);
-                }
-            }
-        }
-        volist.setRootReplyVOS(RootReplys);
-        volist.setReplyVO(RealSonReplys);
-        return ApiRes.ok(volist);
+//        for (int i=0; i<ridList.size(); i++){
+//            for (int j=0; j<fidList.size(); j++){
+//                if (ridList.get(i).equals(fidList.get(j))){
+////                    获取符合条件的fid，调用sql查询出相应的二级评论值,把结果存进二级评论对象数组里。
+//                    int realSec = fidList.get(j);
+//                    List<ReplyVO> list = replyService.selectSonReply(realSec);
+//                    ReplyVO replyVO = new ReplyVO();
+//                    replyVO.setSonReply(list);
+//                    RealSonReplys.add(replyVO);
+//                }
+//            }
+//        }
+//        volist.setRootReplyVOS(RootReplys);
+//        volist.setReplyVO(RealSonReplys);
+        return ApiRes.ok(replyService.selectUserReply(did));
     }
 
     @PostMapping("/addRootReply")
