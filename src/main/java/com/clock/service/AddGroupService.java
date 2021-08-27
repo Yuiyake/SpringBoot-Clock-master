@@ -14,5 +14,7 @@ public interface AddGroupService {
 //    ApiRes userJoinGroup(Integer gid, Integer uid);
     ApiRes userJoinGroup(Integer uid, Integer gid);
 
+    ApiRes changeUClockState(Integer uid, Integer gid);
+
 
 }

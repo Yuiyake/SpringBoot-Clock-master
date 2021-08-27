@@ -228,4 +228,9 @@
     set gnum = gnum-1
     where gid = #{gid}
   </update>
+    <update id="changeClockNum" parameterType="com.clock.bean.Groop">
+      update groop
+      set clocknum = clocknum+1
+      where gid = #{gid}
+    </update>
 </mapper>

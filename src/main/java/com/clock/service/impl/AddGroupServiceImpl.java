@@ -33,4 +33,10 @@ public class AddGroupServiceImpl implements AddGroupService {
         addgroopMapper.insertGroup(uid, gid);
         return ApiRes.ok("success");
     }
+
+    @Override
+    public ApiRes changeUClockState(Integer uid, Integer gid) {
+        addgroopMapper.changeState(uid,gid);
+        return ApiRes.ok("success");
+    }
 }

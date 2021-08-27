@@ -39,4 +39,7 @@ public interface GroopMapper {
     int quitGnum(Integer gid);
 
     int userCreateGroup(Groop groop);
+
+    int changeClockNum(Integer gid);
+
 }

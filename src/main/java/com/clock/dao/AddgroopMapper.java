@@ -25,4 +25,6 @@ public interface AddgroopMapper {
     int insertGroup(Integer uid, Integer gid);
 
     int userQuitGroup(Integer uid, Integer gid);
+
+    int changeState(Integer uid, Integer gid);
 }

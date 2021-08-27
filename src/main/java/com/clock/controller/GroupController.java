@@ -63,5 +63,11 @@ public class GroupController {
     public BarVO barVO() {
         return groupService.barVOList();
     }
+    @PostMapping("/userGroupClock")
+    public ApiRes userGroupClock(Integer gid, Integer uid) {
+        groupService.changeClockNum(gid);
+        addGroupService.changeUClockState(uid, gid);
+        return ApiRes.ok("success");
+    }
 
 }

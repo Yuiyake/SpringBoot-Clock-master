@@ -87,4 +87,10 @@ public class GroupServiceImpl implements GroupService {
         barVO.setValues(values);
         return barVO;
     }
+
+    @Override
+    public ApiRes changeClockNum(Integer gid) {
+        groupMapper.changeClockNum(gid);
+        return ApiRes.ok("success");
+    }
 }

@@ -14,4 +14,5 @@ public interface GroupService {
     ApiRes userQuitGroup(Integer gid);
     ApiRes changeGroupNum(Integer gid);
     public BarVO barVOList();
+    ApiRes changeClockNum(Integer gid);
 }

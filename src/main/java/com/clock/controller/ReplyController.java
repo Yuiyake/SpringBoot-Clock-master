@@ -20,7 +20,7 @@ public class ReplyController {
     @Autowired
     private ReplyService replyService;
 
-    @RequestMapping("/selectUserReply")
+    @PostMapping("/selectUserReply")
     @ApiOperation("获取当前动态的评论")
     public ApiRes selectUserReply(Integer did){
 //        RootReplyVO volist = new RootReplyVO();

@@ -33,15 +33,17 @@ public class ReplyServiceImpl implements ReplyService {
 
     @Override
     public ApiRes addRootReply(RootReplyVO rootReplyVO) {
-        List<RootReplyVO> list = replyMapper.addRootComments(rootReplyVO);
-        System.out.println(list);
-        return ApiRes.ok(list);
+//        List<RootReplyVO> list = replyMapper.addRootComments(rootReplyVO);
+//        System.out.println(list);
+        replyMapper.addRootComments(rootReplyVO);
+        return ApiRes.ok("succeed");
     }
 
     @Override
     public ApiRes addReply(ReplyVO replyVO) {
-        List<ReplyVO> list = replyMapper.addSonComments(replyVO);
-        return ApiRes.ok(list);
+//        List<ReplyVO> list = replyMapper.addSonComments(replyVO);
+        replyMapper.addSonComments(replyVO);
+        return ApiRes.ok("succeed");
     }
 
     @Override

@@ -45,9 +45,9 @@ public interface ReplyMapper {
 
     List<Reply> selectUserReply(Integer did);
 
-    List<RootReplyVO> addRootComments(RootReplyVO rootReplyVO);
+    void addRootComments(RootReplyVO rootReplyVO);
 
-    List<ReplyVO> addSonComments(ReplyVO replyVO);
+    void addSonComments(ReplyVO replyVO);
 
     List<ReplyVO> selectSonReplyByFid(Integer fid);
 }
