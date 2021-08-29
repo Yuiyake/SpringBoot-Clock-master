@@ -46,4 +46,8 @@ public interface UserMapper {
     List<UserBO> selectForbidUser(UserPO po);
 
     int updateUserImg(User user);
+
+    List<User> selectFUserById(UserPO po);
+
+    List<User> selectAUser(Integer id, String username, String account);
 }

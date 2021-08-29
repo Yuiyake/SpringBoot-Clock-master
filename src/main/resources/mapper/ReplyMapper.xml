@@ -217,7 +217,7 @@
     and fid is null
   </select>
 
-  <select id="selectSonReply" resultType="com.clock.bean.Reply">
+  <select id="selectSonReply" resultType="com.clock.bean.vo.ReplyVO">
     select * from reply
     where fid =#{rid}
   </select>

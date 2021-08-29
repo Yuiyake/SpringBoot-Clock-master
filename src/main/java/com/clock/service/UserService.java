@@ -28,4 +28,8 @@ public interface UserService {
 
     ApiRes selectUserById(Integer id);
 
+    ApiRes selectFUserById(UserPO po);
+
+    ApiRes selectAUser(Integer id, String username, String account, UserPO po);
+
 }

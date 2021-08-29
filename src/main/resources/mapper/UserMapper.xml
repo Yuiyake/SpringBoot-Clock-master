@@ -231,6 +231,23 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+
+
+  <select id="selectFUserById" resultType="com.clock.bean.User">
+    select * from user where id = #{id}
+  </select>
+
+
+  <select id="selectAUser" resultType="com.clock.bean.User">
+    select *
+    from user
+    where id = #{id}
+       or username = #{username}
+       or account = #{account}
+        and state='0'
+  </select>
+
+
   <update id="updateByExampleSelective" parameterType="map">
     update user
     <set>

@@ -145,4 +145,10 @@ public class UserController {
 
     }
 
+    @PostMapping("/selectFUserById")
+    @ApiOperation("通过id查询禁用用户")
+    public ApiRes selectFUserById(@RequestBody UserPO po) {
+        return userService.selectFUserById(po);
+    }
+
 }
