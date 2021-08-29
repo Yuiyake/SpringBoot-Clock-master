@@ -30,6 +30,6 @@ public interface UserService {
 
     ApiRes selectFUserById(UserPO po);
 
-    ApiRes selectAUser(Integer id, String username, String account, UserPO po);
+    ApiRes selectAUser(UserPO po);
 
 }

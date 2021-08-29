@@ -144,8 +144,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ApiRes selectAUser(Integer id, String username, String account, UserPO po) {
-        List<User> list = userMapper.selectAUser(id, username, account);
-        return ApiRes.ok(list);
+    public ApiRes selectAUser(UserPO po) {
+        if ("0".equals(po.getIsPage())) {
+            List<User> list = userMapper.selectAUser(po);
+            return ApiRes.ok(list);
+        }
+        PageHelper.startPage(po.getPageNum(),po.getPageSize());
+        List<User> list = userMapper.selectAUser(po);
+        PageInfo<User> info = new PageInfo<>(list);
+        return ApiRes.ok(info);
     }
 }

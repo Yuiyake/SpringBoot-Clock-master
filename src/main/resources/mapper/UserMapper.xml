@@ -241,10 +241,19 @@
   <select id="selectAUser" resultType="com.clock.bean.User">
     select *
     from user
-    where id = #{id}
-       or username = #{username}
-       or account = #{account}
-        and state='0'
+    where state='0'
+    <if test="id != null and id != ''">
+        and id = #{id}
+    </if>
+
+    <if test="username != null and username != ''">
+        or username = #{username}
+    </if>
+
+    <if test="account != null and account != ''">
+         or account = #{account}
+    </if>
+
   </select>
 
 

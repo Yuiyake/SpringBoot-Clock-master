@@ -49,5 +49,5 @@ public interface UserMapper {
 
     List<User> selectFUserById(UserPO po);
 
-    List<User> selectAUser(Integer id, String username, String account);
+    List<User> selectAUser(UserPO po);
 }

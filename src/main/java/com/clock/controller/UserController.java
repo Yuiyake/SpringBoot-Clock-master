@@ -151,4 +151,10 @@ public class UserController {
         return userService.selectFUserById(po);
     }
 
+    @PostMapping("/selectAUser")
+    @ApiOperation("通过id查询普通用户")
+    public ApiRes selectAUser(@RequestBody UserPO po) {
+        return userService.selectAUser(po);
+    }
+
 }
