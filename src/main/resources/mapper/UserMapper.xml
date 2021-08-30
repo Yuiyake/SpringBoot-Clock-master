@@ -247,11 +247,11 @@
     </if>
 
     <if test="username != null and username != ''">
-        or username = #{username}
+        and username = #{username}
     </if>
 
     <if test="account != null and account != ''">
-         or account = #{account}
+         and account = #{account}
     </if>
 
   </select>
