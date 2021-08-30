@@ -25,11 +25,11 @@ public class ReplyVO {
 
     private Integer fromuid;
 
-//    private String fromname;
+    private String fromuname;
 
     private Integer touid;
 
-//    private String toname;
+    private String touname;
 
     public Date getrTime() {
         return rTime;
@@ -65,13 +65,13 @@ public class ReplyVO {
         this.fromuid = fromuid;
     }
 
-//    public String getFromname() {
-////        return fromname;
-////    }
-////
-////    public void setFromname(String fromname) {
-////        this.fromname = fromname;
-////    }
+    public String getFromuname() {
+        return fromuname;
+    }
+
+    public void setFromuname(String fromuname) {
+        this.fromuname = fromuname;
+    }
 
     public Integer getTouid() {
         return touid;
@@ -81,13 +81,13 @@ public class ReplyVO {
         this.touid = touid;
     }
 
-//    public String getToname() {
-//        return toname;
-//    }
-//
-//    public void setToname(String toname) {
-//        this.toname = toname;
-//    }
+    public String getTouname() {
+        return touname;
+    }
+
+    public void setTouname(String touname) {
+        this.touname = touname;
+    }
 
 
     public String getrContents() {
@@ -100,15 +100,15 @@ public class ReplyVO {
 
     private String rContents;
 
-//    public List<ReplyVO> getSonReply() {
-//        return sonReply;
-//    }
-//
-//    public void setSonReply(List<ReplyVO> sonReply) {
-//        this.sonReply = sonReply;
-//    }
-//
-//    private List<ReplyVO> sonReply;
+    public List<ReplyVO> getSonReply() {
+        return sonReply;
+    }
+
+    public void setSonReply(List<ReplyVO> sonReply) {
+        this.sonReply = sonReply;
+    }
+
+    private List<ReplyVO> sonReply;
 
 
 

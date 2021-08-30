@@ -17,7 +17,15 @@ public class RootReplyVO {
 
     private Integer fromuid;
 
-//    private String fromname;
+    public String getFromuname() {
+        return fromuname;
+    }
+
+    public void setFromuname(String fromuname) {
+        this.fromuname = fromuname;
+    }
+
+    private String fromuname;
 
     private Integer touid;
 
@@ -53,13 +61,6 @@ public class RootReplyVO {
         this.fromuid = fromuid;
     }
 
-//    public String getFromname() {
-//        return fromname;
-//    }
-//
-//    public void setFromname(String fromname) {
-//        this.fromname = fromname;
-//    }
 
     public Integer getTouid() {
         return touid;
@@ -69,13 +70,6 @@ public class RootReplyVO {
         this.touid = touid;
     }
 
-//    public String getToname() {
-//        return toname;
-//    }
-//
-//    public void setToname(String toname) {
-//        this.toname = toname;
-//    }
 
     public Date getrTime() {
         return rTime;
@@ -94,7 +88,15 @@ public class RootReplyVO {
     }
 
 
-//    private String toname;
+    public String getTouname() {
+        return touname;
+    }
+
+    public void setTouname(String touname) {
+        this.touname = touname;
+    }
+
+    private String touname;
 
     private Date rTime;
 

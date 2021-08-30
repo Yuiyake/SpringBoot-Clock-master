@@ -43,7 +43,7 @@ public interface ReplyMapper {
 
     int updateByPrimaryKey(Reply record);
 
-    List<Reply> selectUserReply(Integer did);
+    List<RootReplyVO> selectUserReply(Integer did);
 
     void addRootComments(RootReplyVO rootReplyVO);
 

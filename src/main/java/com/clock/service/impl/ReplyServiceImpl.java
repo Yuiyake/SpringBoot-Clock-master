@@ -21,7 +21,7 @@ public class ReplyServiceImpl implements ReplyService {
         if (did==null || did.equals("")){
             return ApiRes.fail("did为空值");
         }
-        List<Reply> list = replyMapper.selectUserReply(did);
+        List<RootReplyVO> list = replyMapper.selectUserReply(did);
         return ApiRes.ok(list);
     }
 

@@ -200,10 +200,12 @@
   </select>
 
   <select id="selectUserReply" resultMap="Comments" parameterType="com.clock.bean.vo.RootReplyVO">
-    select r.*
-    from reply r
-    where did=#{did}
-    and fid is null
+
+SELECT r.*, u.username  as touname, u2.username as fromuname
+FROM `reply` r
+       join user u on u.id = r.touid
+       join user u2 on u2.id = r.fromuid
+where did = #{did} and fid is null
   </select>
   <resultMap id="Comments" type="com.clock.bean.vo.RootReplyVO">
     <result property="rid" column="rid"/>
@@ -218,8 +220,12 @@
   </select>
 
   <select id="selectSonReply" resultType="com.clock.bean.vo.ReplyVO">
-    select * from reply
-    where fid =#{rid}
+
+SELECT r.*, u.username  as touname, u2.username as fromuname
+FROM `reply` r
+       join user u on u.id = r.touid
+       join user u2 on u2.id = r.fromuid
+where fid =#{rid}
   </select>
   <select id="selectSonReplyByFid" resultType="com.clock.bean.vo.ReplyVO">
     select *
