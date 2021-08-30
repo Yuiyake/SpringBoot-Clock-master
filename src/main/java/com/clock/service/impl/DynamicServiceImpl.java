@@ -60,4 +60,16 @@ public class DynamicServiceImpl implements DynamicService {
         return ApiRes.ok(list);
     }
 
+    @Override
+    public ApiRes selectDynamicByName(DynamicPO po) {
+        if ("1".equals(po.getIsPage())) {
+            PageHelper.startPage(po.getPageNum(),po.getPageSize());
+            List<DynamicPO> list = dynamicMapper.selectByName(po);
+            PageInfo<DynamicPO> info = new PageInfo<>(list);
+            return ApiRes.ok(info);
+        }
+        List<DynamicPO> list = dynamicMapper.selectByName(po);
+        return ApiRes.ok(list);
+    }
+
 }

@@ -44,4 +44,6 @@ public interface DynamicMapper {
     int updateByPrimaryKeyWithBLOBs(Dynamic record);
 
     int updateByPrimaryKey(Dynamic record);
+
+    List<DynamicPO> selectByName(DynamicPO po);
 }

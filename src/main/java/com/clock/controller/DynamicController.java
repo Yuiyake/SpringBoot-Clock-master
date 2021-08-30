@@ -17,6 +17,11 @@ public class DynamicController {
         return dynamicService.selectAllDynamic(po);
     }
 
+    @PostMapping("/selectDynamicByName")
+    public ApiRes selectDynamicByName(@RequestBody DynamicPO po) {
+        return dynamicService.selectDynamicByName(po);
+    }
+
     @GetMapping("/deleteDynamic")
     public ApiRes deleteDynamic(Integer did) {
         return dynamicService.deleteDynamic(did);

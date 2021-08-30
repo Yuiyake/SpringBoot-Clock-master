@@ -7,7 +7,6 @@ public class PageParam {
 
     int pageSize;
     int pageNum;
-
     String isPage;
 
 }

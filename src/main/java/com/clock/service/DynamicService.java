@@ -16,4 +16,6 @@ public interface DynamicService {
 
     ApiRes selectThisDynamic(Integer did);
 
+    ApiRes selectDynamicByName(DynamicPO po);
+
 }
