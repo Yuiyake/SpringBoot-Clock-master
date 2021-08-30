@@ -42,4 +42,5 @@ public interface GroopMapper {
 
     int changeClockNum(Integer gid);
 
+    List<Groop> selectByName(GroopPO po);
 }

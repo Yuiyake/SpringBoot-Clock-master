@@ -24,6 +24,11 @@ public class GroupController {
         return groupService.selectAllGroups(po);
     }
 
+    @PostMapping("/selectByGroupName")
+    public ApiRes selectByGroupName(@RequestBody GroopPO po) {
+        return groupService.selectByGroupName(po);
+    }
+
     @PostMapping("/updateGroup")
     public ApiRes updateGroup(@RequestBody Groop group){
         return groupService.updateGroup(group);

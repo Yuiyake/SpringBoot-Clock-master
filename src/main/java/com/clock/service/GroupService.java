@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface GroupService {
     ApiRes selectAllGroups(GroopPO param);
+    ApiRes selectByGroupName(GroopPO po);
     ApiRes updateGroup(Groop groop);
     ApiRes userAddGroup(Groop groop);
     ApiRes userQuitGroup(Integer gid);

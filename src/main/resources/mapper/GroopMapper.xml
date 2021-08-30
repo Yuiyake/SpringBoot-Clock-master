@@ -158,6 +158,13 @@
     <select id="selectBarGroup" resultType="com.clock.bean.Groop">
       select * from groop
     </select>
+
+    <select id="selectByName" resultType="com.clock.bean.Groop">
+      select *
+      from groop
+      where gname = #{gname}
+    </select>
+
     <update id="updateByExampleSelective" parameterType="map">
     update groop
     <set>

@@ -40,6 +40,18 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
+    public ApiRes selectByGroupName(GroopPO po) {
+        if ("1".equals(po.getIsPage())) {
+            PageHelper.startPage(po.getPageNum(),po.getPageSize());
+            List<Groop> list = groupMapper.selectByName(po);
+            PageInfo<Groop> info = new PageInfo<>(list);
+            return ApiRes.ok(info);
+        }
+        List<Groop> list = groupMapper.selectByName(po);
+        return ApiRes.ok(list);
+    }
+
+    @Override
     public ApiRes updateGroup(Groop group) {
         groupMapper.updateByPrimaryKey(group);
         return ApiRes.ok("success");
