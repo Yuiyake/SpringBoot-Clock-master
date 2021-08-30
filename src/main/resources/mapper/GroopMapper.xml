@@ -162,7 +162,7 @@
     <select id="selectByName" resultType="com.clock.bean.Groop">
       select *
       from groop
-      where gname = #{gname}
+      where gname like concat('%',#{gname},'%')
     </select>
 
     <update id="updateByExampleSelective" parameterType="map">
