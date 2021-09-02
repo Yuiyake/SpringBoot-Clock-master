@@ -133,9 +133,9 @@
   </select>
 
     <select id="selectMyGroups" resultType="com.clock.bean.Addgroop">
-      select *
-      from addgroop
-      where uid = #{uid}
+      select a.*, g.gname
+      from addgroop a join groop g on g.gid = a.gid
+      where a.uid = #{uid}
     </select>
 
     <update id="updateByExampleSelective" parameterType="map">

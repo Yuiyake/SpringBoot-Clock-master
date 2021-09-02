@@ -3,6 +3,8 @@ package com.clock.bean;
 public class Addgroop {
     private Integer gid;
 
+    private String gname;
+
     private Integer uid;
 
     private String uclockstate;
@@ -30,4 +32,13 @@ public class Addgroop {
     public void setUclockstate(String uclockstate) {
         this.uclockstate = uclockstate == null ? null : uclockstate.trim();
     }
+
+    public String getGname() {
+        return gname;
+    }
+
+    public void setGname(String gname) {
+        this.gname = gname;
+    }
+
 }
