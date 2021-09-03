@@ -515,123 +515,133 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andTypeIdIsNull() {
-            addCriterion("type_id is null");
+        public Criteria andIsclockIsNull() {
+            addCriterion("isclock is null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIdIsNotNull() {
-            addCriterion("type_id is not null");
+        public Criteria andIsclockIsNotNull() {
+            addCriterion("isclock is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIdEqualTo(Integer value) {
-            addCriterion("type_id =", value, "typeId");
+        public Criteria andIsclockEqualTo(String value) {
+            addCriterion("isclock =", value, "isclock");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIdNotEqualTo(Integer value) {
-            addCriterion("type_id <>", value, "typeId");
+        public Criteria andIsclockNotEqualTo(String value) {
+            addCriterion("isclock <>", value, "isclock");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIdGreaterThan(Integer value) {
-            addCriterion("type_id >", value, "typeId");
+        public Criteria andIsclockGreaterThan(String value) {
+            addCriterion("isclock >", value, "isclock");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("type_id >=", value, "typeId");
+        public Criteria andIsclockGreaterThanOrEqualTo(String value) {
+            addCriterion("isclock >=", value, "isclock");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIdLessThan(Integer value) {
-            addCriterion("type_id <", value, "typeId");
+        public Criteria andIsclockLessThan(String value) {
+            addCriterion("isclock <", value, "isclock");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIdLessThanOrEqualTo(Integer value) {
-            addCriterion("type_id <=", value, "typeId");
+        public Criteria andIsclockLessThanOrEqualTo(String value) {
+            addCriterion("isclock <=", value, "isclock");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIdIn(List<Integer> values) {
-            addCriterion("type_id in", values, "typeId");
+        public Criteria andIsclockLike(String value) {
+            addCriterion("isclock like", value, "isclock");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIdNotIn(List<Integer> values) {
-            addCriterion("type_id not in", values, "typeId");
+        public Criteria andIsclockNotLike(String value) {
+            addCriterion("isclock not like", value, "isclock");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIdBetween(Integer value1, Integer value2) {
-            addCriterion("type_id between", value1, value2, "typeId");
+        public Criteria andIsclockIn(List<String> values) {
+            addCriterion("isclock in", values, "isclock");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("type_id not between", value1, value2, "typeId");
+        public Criteria andIsclockNotIn(List<String> values) {
+            addCriterion("isclock not in", values, "isclock");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdIsNull() {
-            addCriterion("group_id is null");
+        public Criteria andIsclockBetween(String value1, String value2) {
+            addCriterion("isclock between", value1, value2, "isclock");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdIsNotNull() {
-            addCriterion("group_id is not null");
+        public Criteria andIsclockNotBetween(String value1, String value2) {
+            addCriterion("isclock not between", value1, value2, "isclock");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdEqualTo(Integer value) {
-            addCriterion("group_id =", value, "groupId");
+        public Criteria andClockdayIsNull() {
+            addCriterion("clockday is null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdNotEqualTo(Integer value) {
-            addCriterion("group_id <>", value, "groupId");
+        public Criteria andClockdayIsNotNull() {
+            addCriterion("clockday is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdGreaterThan(Integer value) {
-            addCriterion("group_id >", value, "groupId");
+        public Criteria andClockdayEqualTo(Integer value) {
+            addCriterion("clockday =", value, "clockday");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("group_id >=", value, "groupId");
+        public Criteria andClockdayNotEqualTo(Integer value) {
+            addCriterion("clockday <>", value, "clockday");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdLessThan(Integer value) {
-            addCriterion("group_id <", value, "groupId");
+        public Criteria andClockdayGreaterThan(Integer value) {
+            addCriterion("clockday >", value, "clockday");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdLessThanOrEqualTo(Integer value) {
-            addCriterion("group_id <=", value, "groupId");
+        public Criteria andClockdayGreaterThanOrEqualTo(Integer value) {
+            addCriterion("clockday >=", value, "clockday");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdIn(List<Integer> values) {
-            addCriterion("group_id in", values, "groupId");
+        public Criteria andClockdayLessThan(Integer value) {
+            addCriterion("clockday <", value, "clockday");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdNotIn(List<Integer> values) {
-            addCriterion("group_id not in", values, "groupId");
+        public Criteria andClockdayLessThanOrEqualTo(Integer value) {
+            addCriterion("clockday <=", value, "clockday");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdBetween(Integer value1, Integer value2) {
-            addCriterion("group_id between", value1, value2, "groupId");
+        public Criteria andClockdayIn(List<Integer> values) {
+            addCriterion("clockday in", values, "clockday");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("group_id not between", value1, value2, "groupId");
+        public Criteria andClockdayNotIn(List<Integer> values) {
+            addCriterion("clockday not in", values, "clockday");
+            return (Criteria) this;
+        }
+
+        public Criteria andClockdayBetween(Integer value1, Integer value2) {
+            addCriterion("clockday between", value1, value2, "clockday");
+            return (Criteria) this;
+        }
+
+        public Criteria andClockdayNotBetween(Integer value1, Integer value2) {
+            addCriterion("clockday not between", value1, value2, "clockday");
             return (Criteria) this;
         }
 

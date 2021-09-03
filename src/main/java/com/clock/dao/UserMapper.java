@@ -23,12 +23,6 @@ public interface UserMapper {
 
     User selectByPrimaryKey(Integer id);
 
-    List<User> selectByUserId(Integer id);
-
-    int forbidUser(Integer id);
-
-    int recoveryUser(Integer id);
-
     int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
 
     int updateByExample(@Param("record") User record, @Param("example") UserExample example);
@@ -37,15 +31,19 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
-    List<UserBO> selectAllUser(UserPO po);
-
     UserBO selectById(Integer id);
 
-    void updateByExample(User user);
+    List<UserBO> selectAllUser(UserPO po);
 
     List<UserBO> selectForbidUser(UserPO po);
 
+    int forbidUser(Integer id);
+
+    int recoveryUser(Integer id);
+
     int updateUserImg(User user);
+
+    List<User> selectByUserId(Integer id);
 
     List<User> selectFUserById(UserPO po);
 

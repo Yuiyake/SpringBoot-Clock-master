@@ -15,9 +15,9 @@ public class User {
 
     private String sex;
 
-    private Integer typeId;
+    private String isclock;
 
-    private Integer groupId;
+    private Integer clockday;
 
     private String state;
 
@@ -73,20 +73,20 @@ public class User {
         this.sex = sex == null ? null : sex.trim();
     }
 
-    public Integer getTypeId() {
-        return typeId;
+    public String getIsclock() {
+        return isclock;
     }
 
-    public void setTypeId(Integer typeId) {
-        this.typeId = typeId;
+    public void setIsclock(String isclock) {
+        this.isclock = isclock == null ? null : isclock.trim();
     }
 
-    public Integer getGroupId() {
-        return groupId;
+    public Integer getClockday() {
+        return clockday;
     }
 
-    public void setGroupId(Integer groupId) {
-        this.groupId = groupId;
+    public void setClockday(Integer clockday) {
+        this.clockday = clockday;
     }
 
     public String getState() {

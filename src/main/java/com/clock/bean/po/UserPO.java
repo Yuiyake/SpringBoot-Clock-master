@@ -20,9 +20,9 @@ public class UserPO extends PageParam {
 
     private String sex;
 
-    private Integer typeId;
+    private String isclock;
 
-    private Integer groupId;
+    private Integer clockday;
 
     private String state;
 

@@ -181,59 +181,12 @@
       </if>
     </trim>
   </insert>
-
-  <insert id="addRootComments" parameterType="com.clock.bean.vo.RootReplyVO">
-    insert into reply (rid,did,fid,fromuid,touid,rTime,rContents)
-    values(#{rid},#{did},null,#{fromuid},#{touid},#{rTime},#{rContents})
-  </insert>
-
-  <insert id="addSonComments" parameterType="com.clock.bean.vo.ReplyVO">
-    insert into reply (rid,did,fid,fromuid,touid,rTime,rContents)
-    values(#{rid},#{did},#{rid},#{fromuid},#{touid},#{rTime},#{rContents})
-  </insert>
-
   <select id="countByExample" parameterType="com.clock.bean.ReplyExample" resultType="java.lang.Long">
     select count(*) from reply
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-
-  <select id="selectUserReply" resultMap="Comments" parameterType="com.clock.bean.vo.RootReplyVO">
-
-SELECT r.*, u.username  as touname, u2.username as fromuname
-FROM `reply` r
-       join user u on u.id = r.touid
-       join user u2 on u2.id = r.fromuid
-where did = #{did} and fid is null
-  </select>
-  <resultMap id="Comments" type="com.clock.bean.vo.RootReplyVO">
-    <result property="rid" column="rid"/>
-    <collection property="replyVOS" column="rid" javaType="ArrayList" ofType="com.clock.bean.vo.ReplyVO" select="selectSonReply"></collection>
-  </resultMap>
-
-
-  <select id="selectRootReply" resultType="com.clock.bean.vo.RootReplyVO">
-    select * from reply
-    where did = #{did}
-    and fid is null
-  </select>
-
-  <select id="selectSonReply" resultType="com.clock.bean.vo.ReplyVO">
-
-SELECT r.*, u.username  as touname, u2.username as fromuname
-FROM `reply` r
-       join user u on u.id = r.touid
-       join user u2 on u2.id = r.fromuid
-where fid =#{rid}
-  </select>
-  <select id="selectSonReplyByFid" resultType="com.clock.bean.vo.ReplyVO">
-    select *
-    from reply
-    where fid = #{fid}
-  </select>
-
-
   <update id="updateByExampleSelective" parameterType="map">
     update reply
     <set>

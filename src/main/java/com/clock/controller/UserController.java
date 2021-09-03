@@ -1,13 +1,10 @@
 package com.clock.controller;
 
-import cn.hutool.core.img.Img;
 import com.clock.bean.User;
 import com.clock.bean.po.LoginPO;
 import com.clock.bean.po.UserPO;
 import com.clock.service.UserService;
 import com.clock.util.ApiRes;
-import com.clock.bean.path;
-import com.clock.util.ImgRegulation;
 import com.clock.util.QiNiuUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,12 +14,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/user")

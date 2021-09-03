@@ -8,8 +8,8 @@
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="account" jdbcType="VARCHAR" property="account" />
     <result column="sex" jdbcType="VARCHAR" property="sex" />
-    <result column="type_id" jdbcType="INTEGER" property="typeId" />
-    <result column="group_id" jdbcType="INTEGER" property="groupId" />
+    <result column="isclock" jdbcType="VARCHAR" property="isclock" />
+    <result column="clockday" jdbcType="INTEGER" property="clockday" />
     <result column="state" jdbcType="VARCHAR" property="state" />
     <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
     <result column="uavg" jdbcType="VARCHAR" property="uavg" />
@@ -73,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, role, username, password, account, sex, type_id, group_id, state, createtime, 
+    id, role, username, password, account, sex, isclock, clockday, state, createtime, 
     uavg
   </sql>
   <select id="selectByExample" parameterType="com.clock.bean.UserExample" resultMap="BaseResultMap">
@@ -92,46 +92,10 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
-    *
+    <include refid="Base_Column_List" />
     from user
     where id = #{id,jdbcType=INTEGER}
   </select>
-
-  <select id="selectByUserId" resultMap="BaseResultMap">
-    SELECT u.*
-    from `user` u
-    where id = #{id}
-  </select>
-
-  <select id="selectAllUser" resultMap="BaseResultMap">
-    SELECT u.*
-    from `user` u
-    where state = '0'
-<!--    <if test="username!=null and username!=''" >-->
-<!--      and u.username LIKE CONCAT('%',#{username},'%')-->
-<!--    </if>-->
-<!--    <if test="account!=null and account!=''" >-->
-<!--      and u.account LIKE CONCAT('%',#{account},'%')-->
-<!--    </if>-->
-<!--    <if test="role!=null and role!=''" >-->
-<!--      and u.role LIKE CONCAT('%',#{role},'%')-->
-<!--    </if>-->
-  </select>
-
-  <select id="selectForbidUser" resultMap="BaseResultMap">
-    select *
-    from user
-    where state = '1'
-  </select>
-
-  <select id="selectById" resultMap="BaseResultMap">
-    SELECT u.*, t.tname, g.gname
-    from `user` u , `type` t ,`group` g
-    where u.type_id = t.tid
-      and u.group_id = g.gid
-      and u.id = #{id}
-  </select>
-
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from user
     where id = #{id,jdbcType=INTEGER}
@@ -147,12 +111,12 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into user (role, username, password, 
-      account, sex, type_id, 
-      group_id, state, createtime, 
+      account, sex, isclock, 
+      clockday, state, createtime, 
       uavg)
     values (#{role,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{account,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, 
-      #{groupId,jdbcType=INTEGER}, #{state,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{account,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{isclock,jdbcType=VARCHAR}, 
+      #{clockday,jdbcType=INTEGER}, #{state,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
       #{uavg,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.clock.bean.User">
@@ -176,11 +140,11 @@
       <if test="sex != null">
         sex,
       </if>
-      <if test="typeId != null">
-        type_id,
+      <if test="isclock != null">
+        isclock,
       </if>
-      <if test="groupId != null">
-        group_id,
+      <if test="clockday != null">
+        clockday,
       </if>
       <if test="state != null">
         state,
@@ -208,11 +172,11 @@
       <if test="sex != null">
         #{sex,jdbcType=VARCHAR},
       </if>
-      <if test="typeId != null">
-        #{typeId,jdbcType=INTEGER},
+      <if test="isclock != null">
+        #{isclock,jdbcType=VARCHAR},
       </if>
-      <if test="groupId != null">
-        #{groupId,jdbcType=INTEGER},
+      <if test="clockday != null">
+        #{clockday,jdbcType=INTEGER},
       </if>
       <if test="state != null">
         #{state,jdbcType=VARCHAR},
@@ -231,32 +195,45 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-
-
-  <select id="selectFUserById" resultType="com.clock.bean.User">
-    select * from user where id = #{id}
-  </select>
-
-
   <select id="selectAUser" resultType="com.clock.bean.User">
     select *
     from user
     where state='0'
     <if test="id != null and id != ''">
-        and id = #{id}
+      and id = #{id}
     </if>
 
     <if test="username != null and username != ''">
-        and username = #{username}
+      and username = #{username}
     </if>
 
     <if test="account != null and account != ''">
-         and account = #{account}
+      and account = #{account}
     </if>
-
   </select>
-
-
+  <select id="selectFUserById" resultType="com.clock.bean.User">
+    select * from user where id = #{id}
+  </select>
+  <select id="selectByUserId" resultType="com.clock.bean.User">
+    SELECT u.*
+    from `user` u
+    where id = #{id}
+  </select>
+  <select id="selectForbidUser" resultMap="BaseResultMap">
+    select *
+    from user
+    where state = '1'
+  </select>
+  <select id="selectAllUser" resultMap="BaseResultMap">
+    SELECT u.*
+    from `user` u
+    where state = '0'
+  </select>
+  <select id="selectById" resultType="com.clock.bean.bo.UserBO">
+    select u.*
+    from user  u
+    where u.id=#{id}
+  </select>
   <update id="updateByExampleSelective" parameterType="map">
     update user
     <set>
@@ -278,11 +255,11 @@
       <if test="record.sex != null">
         sex = #{record.sex,jdbcType=VARCHAR},
       </if>
-      <if test="record.typeId != null">
-        type_id = #{record.typeId,jdbcType=INTEGER},
+      <if test="record.isclock != null">
+        isclock = #{record.isclock,jdbcType=VARCHAR},
       </if>
-      <if test="record.groupId != null">
-        group_id = #{record.groupId,jdbcType=INTEGER},
+      <if test="record.clockday != null">
+        clockday = #{record.clockday,jdbcType=INTEGER},
       </if>
       <if test="record.state != null">
         state = #{record.state,jdbcType=VARCHAR},
@@ -306,8 +283,8 @@
       password = #{record.password,jdbcType=VARCHAR},
       account = #{record.account,jdbcType=VARCHAR},
       sex = #{record.sex,jdbcType=VARCHAR},
-      type_id = #{record.typeId,jdbcType=INTEGER},
-      group_id = #{record.groupId,jdbcType=INTEGER},
+      isclock = #{record.isclock,jdbcType=VARCHAR},
+      clockday = #{record.clockday,jdbcType=INTEGER},
       state = #{record.state,jdbcType=VARCHAR},
       createtime = #{record.createtime,jdbcType=TIMESTAMP},
       uavg = #{record.uavg,jdbcType=VARCHAR}
@@ -333,11 +310,11 @@
       <if test="sex != null">
         sex = #{sex,jdbcType=VARCHAR},
       </if>
-      <if test="typeId != null">
-        type_id = #{typeId,jdbcType=INTEGER},
+      <if test="isclock != null">
+        isclock = #{isclock,jdbcType=VARCHAR},
       </if>
-      <if test="groupId != null">
-        group_id = #{groupId,jdbcType=INTEGER},
+      <if test="clockday != null">
+        clockday = #{clockday,jdbcType=INTEGER},
       </if>
       <if test="state != null">
         state = #{state,jdbcType=VARCHAR},
@@ -358,29 +335,26 @@
       password = #{password,jdbcType=VARCHAR},
       account = #{account,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=VARCHAR},
-      type_id = #{typeId,jdbcType=INTEGER},
-      group_id = #{groupId,jdbcType=INTEGER},
+      isclock = #{isclock,jdbcType=VARCHAR},
+      clockday = #{clockday,jdbcType=INTEGER},
       state = #{state,jdbcType=VARCHAR},
       createtime = #{createtime,jdbcType=TIMESTAMP},
       uavg = #{uavg,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-<!--  禁用user-->
-    <update id="forbidUser" parameterType="com.clock.bean.User">
-      update user
-      set state = '1'
-      where id = #{id}
-    </update>
-
-<!--恢复user-->
+  <update id="updateUserImg">
+    update user
+    set uavg = #{uavg,jdbcType=VARCHAR}
+    where id = #{id}
+  </update>
   <update id="recoveryUser" parameterType="com.clock.bean.User">
     update user
     set state = '0'
     where id = #{id}
-    </update>
-  <update id="updateUserImg">
+  </update>
+  <update id="forbidUser" parameterType="com.clock.bean.User">
     update user
-    set uavg = #{uavg,jdbcType=VARCHAR}
+    set state = '1'
     where id = #{id}
   </update>
 </mapper>
