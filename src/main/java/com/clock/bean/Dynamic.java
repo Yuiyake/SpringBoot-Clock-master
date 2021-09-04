@@ -1,5 +1,7 @@
 package com.clock.bean;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Dynamic {
@@ -9,6 +11,7 @@ public class Dynamic {
 
     private Integer uid;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date dtime;
 
     private Integer support;

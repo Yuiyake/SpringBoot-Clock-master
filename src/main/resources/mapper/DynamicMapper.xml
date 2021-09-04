@@ -181,7 +181,13 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.clock.bean.DynamicExample" resultType="java.lang.Long">
+
+    <insert id="addUserDynamic" parameterType="com.clock.bean.Dynamic">
+      insert into dynamic(did, tid, uid, dtime, dconcern)
+      values(#{did}, #{tid}, #{uid}, #{dtime}, #{dconcern})
+    </insert>
+
+    <select id="countByExample" parameterType="com.clock.bean.DynamicExample" resultType="java.lang.Long">
     select count(*) from dynamic
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

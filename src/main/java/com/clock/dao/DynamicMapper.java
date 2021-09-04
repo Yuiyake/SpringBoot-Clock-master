@@ -46,4 +46,6 @@ public interface DynamicMapper {
     int updateByPrimaryKey(Dynamic record);
 
     List<DynamicPO> selectByName(DynamicPO po);
+
+    int addUserDynamic(Dynamic dynamic);
 }

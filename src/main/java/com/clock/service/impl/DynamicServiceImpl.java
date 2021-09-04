@@ -11,6 +11,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -70,6 +71,12 @@ public class DynamicServiceImpl implements DynamicService {
         }
         List<DynamicPO> list = dynamicMapper.selectByName(po);
         return ApiRes.ok(list);
+    }
+
+    @Override
+    public ApiRes addUserDynamic(Dynamic dynamic) {
+        dynamicMapper.insertSelective(dynamic);
+        return ApiRes.ok("success");
     }
 
 }
