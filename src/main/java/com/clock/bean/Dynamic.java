@@ -1,7 +1,5 @@
 package com.clock.bean;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.util.Date;
 
 public class Dynamic {
@@ -11,12 +9,13 @@ public class Dynamic {
 
     private Integer uid;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date dtime;
 
     private Integer support;
 
     private Integer dreplycount;
+
+    private String dimg;
 
     private String dconcern;
 
@@ -66,6 +65,14 @@ public class Dynamic {
 
     public void setDreplycount(Integer dreplycount) {
         this.dreplycount = dreplycount;
+    }
+
+    public String getDimg() {
+        return dimg;
+    }
+
+    public void setDimg(String dimg) {
+        this.dimg = dimg == null ? null : dimg.trim();
     }
 
     public String getDconcern() {

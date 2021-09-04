@@ -8,6 +8,7 @@
     <result column="dTime" jdbcType="TIMESTAMP" property="dtime" />
     <result column="support" jdbcType="INTEGER" property="support" />
     <result column="dReplyCount" jdbcType="INTEGER" property="dreplycount" />
+    <result column="dimg" jdbcType="VARCHAR" property="dimg" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.clock.bean.Dynamic">
     <result column="dconcern" jdbcType="LONGVARCHAR" property="dconcern" />
@@ -71,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    did, tid, uid, dTime, support, dReplyCount
+    did, tid, uid, dTime, support, dReplyCount, dimg
   </sql>
   <sql id="Blob_Column_List">
     dconcern
@@ -129,11 +130,11 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into dynamic (tid, uid, dTime, 
-      support, dReplyCount, dconcern
-      )
+      support, dReplyCount, dimg, 
+      dconcern)
     values (#{tid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{dtime,jdbcType=TIMESTAMP}, 
-      #{support,jdbcType=INTEGER}, #{dreplycount,jdbcType=INTEGER}, #{dconcern,jdbcType=LONGVARCHAR}
-      )
+      #{support,jdbcType=INTEGER}, #{dreplycount,jdbcType=INTEGER}, #{dimg,jdbcType=VARCHAR}, 
+      #{dconcern,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.clock.bean.Dynamic">
     <selectKey keyProperty="did" order="AFTER" resultType="java.lang.Integer">
@@ -156,6 +157,9 @@
       <if test="dreplycount != null">
         dReplyCount,
       </if>
+      <if test="dimg != null">
+        dimg,
+      </if>
       <if test="dconcern != null">
         dconcern,
       </if>
@@ -176,38 +180,30 @@
       <if test="dreplycount != null">
         #{dreplycount,jdbcType=INTEGER},
       </if>
+      <if test="dimg != null">
+        #{dimg,jdbcType=VARCHAR},
+      </if>
       <if test="dconcern != null">
         #{dconcern,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
-
-    <insert id="addUserDynamic" parameterType="com.clock.bean.Dynamic">
-      insert into dynamic(did, tid, uid, dtime, dconcern)
-      values(#{did}, #{tid}, #{uid}, #{dtime}, #{dconcern})
-    </insert>
-
-    <select id="countByExample" parameterType="com.clock.bean.DynamicExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.clock.bean.DynamicExample" resultType="java.lang.Long">
     select count(*) from dynamic
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-<!--新增查询所有动态-->
-    <select id="selectAllDynamic" resultType="com.clock.bean.bo.DynamicBO">
-      select d.*, u.username
-      from dynamic d, user u
-      where d.uid = u.id
-    </select>
-
-<!--  新增查询指定用户的动态-->
+  <select id="selectAllDynamic" resultType="com.clock.bean.bo.DynamicBO">
+    select d.*, u.username
+    from dynamic d, user u
+    where d.uid = u.id
+  </select>
   <select id="selectUserDynamic" resultType="com.clock.bean.Dynamic">
     select *
     from dynamic
     where uid = #{uid}
   </select>
-
-  <!--  新增查询指定用户的指定动态-->
   <select id="selectThisDynamic" resultType="com.clock.bean.Dynamic">
     select *
     from dynamic
@@ -218,11 +214,11 @@
     from dynamic
     where did = #{did}
   </select>
-
   <select id="selectByName" resultType="com.clock.bean.po.DynamicPO">
-    select d.* from dynamic d join user u on u.id=d.uid where u.username = #{username}
+    select d.*
+    from dynamic d join user u on u.id=d.uid
+    where u.username = #{username}
   </select>
-
   <update id="updateByExampleSelective" parameterType="map">
     update dynamic
     <set>
@@ -244,6 +240,9 @@
       <if test="record.dreplycount != null">
         dReplyCount = #{record.dreplycount,jdbcType=INTEGER},
       </if>
+      <if test="record.dimg != null">
+        dimg = #{record.dimg,jdbcType=VARCHAR},
+      </if>
       <if test="record.dconcern != null">
         dconcern = #{record.dconcern,jdbcType=LONGVARCHAR},
       </if>
@@ -260,6 +259,7 @@
       dTime = #{record.dtime,jdbcType=TIMESTAMP},
       support = #{record.support,jdbcType=INTEGER},
       dReplyCount = #{record.dreplycount,jdbcType=INTEGER},
+      dimg = #{record.dimg,jdbcType=VARCHAR},
       dconcern = #{record.dconcern,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -272,7 +272,8 @@
       uid = #{record.uid,jdbcType=INTEGER},
       dTime = #{record.dtime,jdbcType=TIMESTAMP},
       support = #{record.support,jdbcType=INTEGER},
-      dReplyCount = #{record.dreplycount,jdbcType=INTEGER}
+      dReplyCount = #{record.dreplycount,jdbcType=INTEGER},
+      dimg = #{record.dimg,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -295,6 +296,9 @@
       <if test="dreplycount != null">
         dReplyCount = #{dreplycount,jdbcType=INTEGER},
       </if>
+      <if test="dimg != null">
+        dimg = #{dimg,jdbcType=VARCHAR},
+      </if>
       <if test="dconcern != null">
         dconcern = #{dconcern,jdbcType=LONGVARCHAR},
       </if>
@@ -308,6 +312,7 @@
       dTime = #{dtime,jdbcType=TIMESTAMP},
       support = #{support,jdbcType=INTEGER},
       dReplyCount = #{dreplycount,jdbcType=INTEGER},
+      dimg = #{dimg,jdbcType=VARCHAR},
       dconcern = #{dconcern,jdbcType=LONGVARCHAR}
     where did = #{did,jdbcType=INTEGER}
   </update>
@@ -317,7 +322,8 @@
       uid = #{uid,jdbcType=INTEGER},
       dTime = #{dtime,jdbcType=TIMESTAMP},
       support = #{support,jdbcType=INTEGER},
-      dReplyCount = #{dreplycount,jdbcType=INTEGER}
+      dReplyCount = #{dreplycount,jdbcType=INTEGER},
+      dimg = #{dimg,jdbcType=VARCHAR}
     where did = #{did,jdbcType=INTEGER}
   </update>
 </mapper>

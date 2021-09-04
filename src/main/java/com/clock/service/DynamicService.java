@@ -2,9 +2,7 @@ package com.clock.service;
 
 import com.clock.bean.Dynamic;
 import com.clock.bean.po.DynamicPO;
-import com.clock.bean.po.TypePO;
 import com.clock.util.ApiRes;
-import io.swagger.annotations.Api;
 import org.springframework.stereotype.Service;
 
 @Service

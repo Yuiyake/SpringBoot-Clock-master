@@ -464,6 +464,76 @@ public class DynamicExample {
             addCriterion("dReplyCount not between", value1, value2, "dreplycount");
             return (Criteria) this;
         }
+
+        public Criteria andDimgIsNull() {
+            addCriterion("dimg is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDimgIsNotNull() {
+            addCriterion("dimg is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDimgEqualTo(String value) {
+            addCriterion("dimg =", value, "dimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDimgNotEqualTo(String value) {
+            addCriterion("dimg <>", value, "dimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDimgGreaterThan(String value) {
+            addCriterion("dimg >", value, "dimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDimgGreaterThanOrEqualTo(String value) {
+            addCriterion("dimg >=", value, "dimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDimgLessThan(String value) {
+            addCriterion("dimg <", value, "dimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDimgLessThanOrEqualTo(String value) {
+            addCriterion("dimg <=", value, "dimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDimgLike(String value) {
+            addCriterion("dimg like", value, "dimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDimgNotLike(String value) {
+            addCriterion("dimg not like", value, "dimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDimgIn(List<String> values) {
+            addCriterion("dimg in", values, "dimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDimgNotIn(List<String> values) {
+            addCriterion("dimg not in", values, "dimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDimgBetween(String value1, String value2) {
+            addCriterion("dimg between", value1, value2, "dimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDimgNotBetween(String value1, String value2) {
+            addCriterion("dimg not between", value1, value2, "dimg");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

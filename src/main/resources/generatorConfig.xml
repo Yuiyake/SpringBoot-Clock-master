@@ -39,8 +39,8 @@
         </javaClientGenerator>
 
         <!-- 映射配置 -->
-        <table tableName="user" >
-            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+        <table tableName="dynamic" >
+            <generatedKey column="did" sqlStatement="MySql" identity="true" />
         </table>
 
         <!--

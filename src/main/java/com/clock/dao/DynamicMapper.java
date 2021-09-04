@@ -23,14 +23,6 @@ public interface DynamicMapper {
 
     List<Dynamic> selectByExample(DynamicExample example);
 
-    List<DynamicBO> selectAllDynamic(DynamicPO po);
-
-    List<Dynamic> selectUserDynamic(Integer uid);
-
-    List<Dynamic> selectThisDynamic(Integer did);
-
-    int selectUidByDid(Integer did);
-
     Dynamic selectByPrimaryKey(Integer did);
 
     int updateByExampleSelective(@Param("record") Dynamic record, @Param("example") DynamicExample example);
@@ -45,7 +37,13 @@ public interface DynamicMapper {
 
     int updateByPrimaryKey(Dynamic record);
 
-    List<DynamicPO> selectByName(DynamicPO po);
+    List<DynamicBO> selectAllDynamic(DynamicPO po);
 
-    int addUserDynamic(Dynamic dynamic);
+    List<Dynamic> selectUserDynamic(Integer uid);
+
+    List<Dynamic> selectThisDynamic(Integer did);
+
+    int selectUidByDid(Integer did);
+
+    List<DynamicPO> selectByName(DynamicPO po);
 }
