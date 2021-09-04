@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.TimeZone;
 
 @RestController
 @RequestMapping("/dynamic")
@@ -42,6 +43,8 @@ public class DynamicController {
 
     @PostMapping("/addUserDynamic")
     public ApiRes addUserDynamic(@RequestBody Dynamic dynamic) {
+        TimeZone time = TimeZone.getTimeZone("Etc/GMT-8");  //转换为中国时区
+        TimeZone.setDefault(time);
         dynamic.setDtime(new Date());
         return dynamicService.addUserDynamic(dynamic);
     }
