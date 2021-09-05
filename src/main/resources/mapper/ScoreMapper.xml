@@ -132,6 +132,14 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+    <select id="selectAllScore" resultType="com.clock.bean.Score">
+      select * from score
+    </select>
+  <select id="selectScoreByUid" resultType="com.clock.bean.bo.ScoreBO">
+    select s.*, u.clockday
+    from score s join user u on u.id = #{uid}
+    where s.uid = #{uid}
+  </select>
   <update id="updateByExampleSelective" parameterType="map">
     update score
     <set>

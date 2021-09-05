@@ -3,6 +3,9 @@ package com.clock.dao;
 import com.clock.bean.Score;
 import com.clock.bean.ScoreExample;
 import java.util.List;
+
+import com.clock.bean.bo.ScoreBO;
+import com.clock.bean.po.ScorePO;
 import org.apache.ibatis.annotations.Param;
 
 public interface ScoreMapper {
@@ -27,4 +30,8 @@ public interface ScoreMapper {
     int updateByPrimaryKeySelective(Score record);
 
     int updateByPrimaryKey(Score record);
+
+    List<Score> selectAllScore(ScorePO po);
+
+    List<ScoreBO> selectScoreByUid(Integer uid);
 }
