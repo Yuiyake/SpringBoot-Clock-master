@@ -34,4 +34,10 @@ public interface ScoreMapper {
     List<Score> selectAllScore(ScorePO po);
 
     List<ScoreBO> selectScoreByUid(Integer uid);
+
+    int userRepair(Integer uid);
+
+    int userClock(Integer uid);
+
+    int userGroupClock(Integer uid);
 }

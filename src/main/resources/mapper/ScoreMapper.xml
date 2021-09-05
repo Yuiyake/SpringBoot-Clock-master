@@ -184,4 +184,19 @@
       score = #{score,jdbcType=INTEGER}
     where sid = #{sid,jdbcType=INTEGER}
   </update>
+  <update id="userRepair">
+    update score
+    set score = score-10
+    where uid = #{uid}
+  </update>
+  <update id="userClock">
+    update score
+    set score = score+10
+    where uid = #{uid}
+  </update>
+  <update id="userGroupClock">
+    update score
+    set score = score+15
+    where uid = #{uid}
+  </update>
 </mapper>

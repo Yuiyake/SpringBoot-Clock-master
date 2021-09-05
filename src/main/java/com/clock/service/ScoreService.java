@@ -11,4 +11,10 @@ public interface ScoreService {
     ApiRes selectAllScore(ScorePO po);
 
     ApiRes selectUserScore(Integer uid);
+
+    ApiRes userRepair(Integer uid);
+
+    ApiRes userClock(Integer uid);
+
+    ApiRes userGroupClock(Integer uid);
 }

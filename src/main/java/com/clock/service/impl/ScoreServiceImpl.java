@@ -36,4 +36,25 @@ public class ScoreServiceImpl implements ScoreService {
         List<ScoreBO> list = scoreMapper.selectScoreByUid(uid);
         return ApiRes.ok(list);
     }
+
+    //  用户补签
+    @Override
+    public ApiRes userRepair(Integer uid) {
+        scoreMapper.userRepair(uid);
+        return ApiRes.ok("success");
+    }
+
+    // 用户打卡
+    @Override
+    public ApiRes userClock(Integer uid) {
+        scoreMapper.userClock(uid);
+        return ApiRes.ok("success");
+    }
+
+    // 用户小组打卡
+    @Override
+    public ApiRes userGroupClock(Integer uid) {
+        scoreMapper.userGroupClock(uid);
+        return ApiRes.ok("success");
+    }
 }
