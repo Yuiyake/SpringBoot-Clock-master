@@ -48,4 +48,6 @@ public interface UserMapper {
     List<User> selectFUserById(UserPO po);
 
     List<User> selectAUser(UserPO po);
+
+    int changeIsClock(Integer id);
 }

@@ -150,4 +150,10 @@ public class UserController {
         return userService.selectAUser(po);
     }
 
+    @PostMapping("/changeIsClock")
+    @ApiOperation("用户打卡")
+    public ApiRes changeIsClock(Integer id) {
+        return userService.changeIsClock(id);
+    }
+
 }

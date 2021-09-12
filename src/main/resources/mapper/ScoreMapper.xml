@@ -136,7 +136,7 @@
       select * from score
     </select>
   <select id="selectScoreByUid" resultType="com.clock.bean.bo.ScoreBO">
-    select s.*, u.clockday
+    select s.*, u.clockday,isclock
     from score s join user u on u.id = #{uid}
     where s.uid = #{uid}
   </select>

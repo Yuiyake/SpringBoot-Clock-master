@@ -16,6 +16,8 @@ public class DynamicPO extends PageParam {
 
     private Date dtime;
 
+    private String dimg;
+
     private Integer support;
 
     private Integer dreplycount;

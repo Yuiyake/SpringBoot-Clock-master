@@ -3,6 +3,7 @@ package com.clock.controller;
 import com.clock.bean.Dynamic;
 import com.clock.bean.po.DynamicPO;
 import com.clock.service.DynamicService;
+import com.clock.service.UserService;
 import com.clock.util.ApiRes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,9 @@ import java.util.TimeZone;
 public class DynamicController {
     @Autowired
     private DynamicService dynamicService;
+
+    @Autowired
+    private UserService userService;
 
     @PostMapping("/selectAllDynamic")
     public ApiRes selectAllDynamic(@RequestBody DynamicPO po) {
@@ -41,11 +45,13 @@ public class DynamicController {
         return dynamicService.selectThisDynamic(did);
     }
 
+    // 用户打卡
     @PostMapping("/addUserDynamic")
     public ApiRes addUserDynamic(@RequestBody Dynamic dynamic) {
         TimeZone time = TimeZone.getTimeZone("Etc/GMT-8");  //转换为中国时区
         TimeZone.setDefault(time);
         dynamic.setDtime(new Date());
+        System.out.println(dynamic.getDtime());
         return dynamicService.addUserDynamic(dynamic);
     }
 

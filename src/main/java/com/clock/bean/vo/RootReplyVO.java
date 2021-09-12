@@ -1,6 +1,7 @@
 package com.clock.bean.vo;
 
 import lombok.Data;
+import lombok.Generated;
 
 import java.util.Date;
 import java.util.List;
@@ -28,6 +29,7 @@ public class RootReplyVO {
     private String fromuname;
 
     private Integer touid;
+
 
     public Integer getRid() {
         return rid;

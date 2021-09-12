@@ -182,14 +182,22 @@
     </trim>
   </insert>
 
+<!--  添加父评论-->
   <insert id="addRootComments" parameterType="com.clock.bean.vo.RootReplyVO">
-    insert into reply (rid,did,fid,fromuid,touid,rTime,rContents)
-    values(#{rid},#{did},null,#{fromuid},#{touid},#{rTime},#{rContents})
+    <selectKey keyProperty="rid" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into reply (did,fid,fromuid,touid,rTime,rContents)
+    values(#{did},null,#{fromuid},#{touid},#{rTime},#{rContents})
   </insert>
 
+<!--  添加子评论-->
   <insert id="addSonComments" parameterType="com.clock.bean.vo.ReplyVO">
-    insert into reply (rid,did,fid,fromuid,touid,rTime,rContents)
-    values(#{rid},#{did},#{rid},#{fromuid},#{touid},#{rTime},#{rContents})
+    <selectKey keyProperty="rid" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into reply (did,fid,fromuid,touid,rTime,rContents)
+    values(#{did},#{fid},#{fromuid},#{touid},#{rTime},#{rContents})
   </insert>
 
   <select id="countByExample" parameterType="com.clock.bean.ReplyExample" resultType="java.lang.Long">

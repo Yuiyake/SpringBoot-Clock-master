@@ -32,4 +32,6 @@ public interface UserService {
 
     ApiRes selectAUser(UserPO po);
 
+    ApiRes changeIsClock(Integer id);
+
 }

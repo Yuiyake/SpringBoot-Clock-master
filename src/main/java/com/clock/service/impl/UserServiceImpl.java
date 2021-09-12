@@ -154,4 +154,11 @@ public class UserServiceImpl implements UserService {
         PageInfo<User> info = new PageInfo<>(list);
         return ApiRes.ok(info);
     }
+
+    // 用户打卡
+    @Override
+    public ApiRes changeIsClock(Integer id) {
+        userMapper.changeIsClock(id);
+        return ApiRes.ok("success");
+    }
 }

@@ -357,4 +357,9 @@
     set state = '1'
     where id = #{id}
   </update>
+    <update id="changeIsClock" parameterType="com.clock.bean.User">
+      update user
+      set isclock = '1'
+      where id = #{id}
+    </update>
 </mapper>

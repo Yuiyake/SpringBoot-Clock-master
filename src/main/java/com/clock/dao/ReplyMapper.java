@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.clock.bean.vo.ReplyVO;
 import com.clock.bean.vo.RootReplyVO;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 
 public interface ReplyMapper {
@@ -45,8 +46,10 @@ public interface ReplyMapper {
 
     List<RootReplyVO> selectUserReply(Integer did);
 
+//    @Options(useGeneratedKeys = true, keyProperty = "rootReplyVO.rid")
     void addRootComments(RootReplyVO rootReplyVO);
 
+//    @Options(useGeneratedKeys = true, keyProperty = "rid")
     void addSonComments(ReplyVO replyVO);
 
     List<ReplyVO> selectSonReplyByFid(Integer fid);
