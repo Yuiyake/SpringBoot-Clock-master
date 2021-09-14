@@ -226,6 +226,7 @@
       and fid is null
   </select>
 
+  // 查找子评论
   <select id="selectSonReply" resultType="com.clock.bean.vo.ReplyVO">
     SELECT r.*, u.username  as touname, u2.username as fromuname
     FROM `reply` r
