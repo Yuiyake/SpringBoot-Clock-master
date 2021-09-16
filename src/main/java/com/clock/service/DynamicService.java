@@ -5,7 +5,7 @@ import com.clock.bean.po.DynamicPO;
 import com.clock.util.ApiRes;
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public interface DynamicService {
 
     ApiRes selectAllDynamic(DynamicPO po);

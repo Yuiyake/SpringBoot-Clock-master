@@ -24,30 +24,6 @@ public class ReplyController {
     @PostMapping("/selectUserReply")
     @ApiOperation("获取当前动态的评论")
     public ApiRes selectUserReply(Integer did){
-//        RootReplyVO volist = new RootReplyVO();
-//        获取所有一二级评论，分开数组存放
-//        List<RootReplyVO> RootReplys = replyService.selectRootReply(did);
-//        List<ReplyVO> SonReplys = replyService.selectSonReply(did);
-
-//        List<ReplyVO> RealSonReplys = new ArrayList();
-//        取出一级评论的所有rid作为集合
-//        List<Integer> ridList = RootReplys.stream().map(RootReplyVO::getRid).collect(Collectors.toList());
-//        List<Integer> fidList = SonReplys.stream().map(ReplyVO::getFid).collect(Collectors.toList());
-
-//        for (int i=0; i<ridList.size(); i++){
-//            for (int j=0; j<fidList.size(); j++){
-//                if (ridList.get(i).equals(fidList.get(j))){
-////                    获取符合条件的fid，调用sql查询出相应的二级评论值,把结果存进二级评论对象数组里。
-//                    int realSec = fidList.get(j);
-//                    List<ReplyVO> list = replyService.selectSonReply(realSec);
-//                    ReplyVO replyVO = new ReplyVO();
-//                    replyVO.setSonReply(list);
-//                    RealSonReplys.add(replyVO);
-//                }
-//            }
-//        }
-//        volist.setRootReplyVOS(RootReplys);
-//        volist.setReplyVO(RealSonReplys);
         return ApiRes.ok(replyService.selectUserReply(did));
     }
 

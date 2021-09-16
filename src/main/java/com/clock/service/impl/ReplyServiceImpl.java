@@ -1,5 +1,6 @@
 package com.clock.service.impl;
 
+import com.clock.bean.Dynamic;
 import com.clock.bean.Reply;
 import com.clock.bean.vo.ReplyVO;
 import com.clock.bean.vo.RootReplyVO;
@@ -56,6 +57,12 @@ public class ReplyServiceImpl implements ReplyService {
     public List<ReplyVO> selectSonReply(Integer did) {
         List<ReplyVO> list = replyMapper.selectSonReply(did);
         return list;
+    }
+
+    @Override
+    public ApiRes updateReplyCount(Integer did) {
+        replyMapper.updateReplyNum(did);
+        return ApiRes.ok("success");
     }
 
 }

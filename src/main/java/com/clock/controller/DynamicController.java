@@ -2,7 +2,9 @@ package com.clock.controller;
 
 import com.clock.bean.Dynamic;
 import com.clock.bean.po.DynamicPO;
+import com.clock.dao.ReplyMapper;
 import com.clock.service.DynamicService;
+import com.clock.service.ReplyService;
 import com.clock.service.UserService;
 import com.clock.util.ApiRes;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,9 @@ import java.util.TimeZone;
 public class DynamicController {
     @Autowired
     private DynamicService dynamicService;
+
+    @Autowired
+    private ReplyService replyService;
 
     @Autowired
     private UserService userService;
@@ -53,6 +58,11 @@ public class DynamicController {
         dynamic.setDtime(new Date());
         System.out.println(dynamic.getDtime());
         return dynamicService.addUserDynamic(dynamic);
+    }
+
+    @PostMapping("/updateReplyCount")
+    public ApiRes updateReplyCount(Integer did){
+        return replyService.updateReplyCount(did);
     }
 
 }

@@ -26,5 +26,9 @@ public interface ReplyService {
 
     List<ReplyVO> selectSonReply(Integer did);
 
+//    更新该动态的评论数
+    ApiRes updateReplyCount(Integer did);
+
+
 
 }

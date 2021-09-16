@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.clock.bean.vo.ReplyVO;
 import com.clock.bean.vo.RootReplyVO;
-import org.apache.ibatis.annotations.Options;
+import com.clock.util.ApiRes;
 import org.apache.ibatis.annotations.Param;
 
 public interface ReplyMapper {
@@ -53,4 +53,6 @@ public interface ReplyMapper {
     void addSonComments(ReplyVO replyVO);
 
     List<ReplyVO> selectSonReplyByFid(Integer fid);
+
+    int updateReplyNum(Integer did);
 }
