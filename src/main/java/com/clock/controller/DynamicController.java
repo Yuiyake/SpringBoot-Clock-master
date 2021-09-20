@@ -7,6 +7,7 @@ import com.clock.service.DynamicService;
 import com.clock.service.ReplyService;
 import com.clock.service.UserService;
 import com.clock.util.ApiRes;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,32 +27,38 @@ public class DynamicController {
     private UserService userService;
 
     @PostMapping("/selectAllDynamic")
+    @ApiOperation("查询所有动态")
     public ApiRes selectAllDynamic(@RequestBody DynamicPO po) {
         return dynamicService.selectAllDynamic(po);
     }
 
     @PostMapping("/selectDynamicByName")
+    @ApiOperation("按名字查询该用户动态")
     public ApiRes selectDynamicByName(@RequestBody DynamicPO po) {
         return dynamicService.selectDynamicByName(po);
     }
 
     @GetMapping("/deleteDynamic")
+    @ApiOperation("删除动态")
     public ApiRes deleteDynamic(Integer did) {
         return dynamicService.deleteDynamic(did);
     }
 
     @RequestMapping("/selectUserDynamic")
+    @ApiOperation("查询单个用户的动态")
     public ApiRes selectUserDynamic(Integer uid){
         return dynamicService.selectUserDynamic(uid);
     }
 
     @RequestMapping("/selectThisDynamic")
+    @ApiOperation("查询当前账号用户动态")
     public ApiRes selectThisDynamic(Integer did){
         return dynamicService.selectThisDynamic(did);
     }
 
     // 用户打卡
     @PostMapping("/addUserDynamic")
+    @ApiOperation("用户添加动态（打卡）")
     public ApiRes addUserDynamic(@RequestBody Dynamic dynamic) {
         TimeZone time = TimeZone.getTimeZone("Etc/GMT-8");  //转换为中国时区
         TimeZone.setDefault(time);
@@ -61,6 +68,7 @@ public class DynamicController {
     }
 
     @PostMapping("/updateReplyCount")
+    @ApiOperation("动态的回复数量更新")
     public ApiRes updateReplyCount(Integer did){
         return replyService.updateReplyCount(did);
     }

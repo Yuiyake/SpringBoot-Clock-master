@@ -18,13 +18,13 @@ public class QiNiuUtils {
     private static final String SECRET_KEY = "AWu8FbhVtJ6cgPlUeImfHnR4sstyWEkb6dQspxXw";
 
     // 要上传的空间名称
-    private static final String BUCKETNAME = "bei-imgbad";
+    private static final String BUCKETNAME = "bei-bad";
 
     // 密钥
     private static final Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
 
     // 外链默认域名
-    private static final String DOMAIN = "http://qy4j0gcm4.hn-bkt.clouddn.com";
+    private static final String DOMAIN = "http://qzpxeo4mo.hn-bkt.clouddn.com";
 
     /**
      * 将图片上传到七牛云
