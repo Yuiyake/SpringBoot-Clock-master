@@ -165,9 +165,11 @@
     </if>
   </update>
     <update id="changeState" parameterType="com.clock.bean.Addgroop">
-      update addgroop
-      set uclockstate = '1'
-      where uid = #{uid}
-        and gid = #{gid}
+      update addgroop a, score s, user u
+      set a.uclockstate = '1', s.score = s.score+15, u.isclock = '1'
+      where a.uid = #{uid}
+        and a.gid = #{gid}
+        and s.uid = #{uid}
+        and u.id = #{uid}
     </update>
 </mapper>
