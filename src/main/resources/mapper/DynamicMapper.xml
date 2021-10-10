@@ -214,10 +214,14 @@
     from dynamic
     where did = #{did}
   </select>
-  <select id="selectByName" resultType="com.clock.bean.po.DynamicPO">
+  <select id="selectByName" resultType="com.clock.bean.Dynamic">
     select d.*
-    from dynamic d join user u on u.id=d.uid
-    where u.username = #{username}
+    from dynamic d
+    <if test="username != null and username != ''">
+      join user u on u.id=d.uid
+      where u.username = #{username}
+    </if>
+
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     update dynamic

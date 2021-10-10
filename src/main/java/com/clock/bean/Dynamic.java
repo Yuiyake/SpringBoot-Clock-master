@@ -19,6 +19,8 @@ public class Dynamic {
 
     private String dconcern;
 
+    private String username;
+
     public Integer getDid() {
         return did;
     }

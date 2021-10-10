@@ -135,7 +135,12 @@
   <select id="selectAllType" resultType="com.clock.bean.Type">
     select * from type
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+    <select id="selectTypeById" resultType="com.clock.bean.Type">
+      select *
+      from type
+      where tid = #{tid}
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
     update type
     <set>
       <if test="record.tid != null">

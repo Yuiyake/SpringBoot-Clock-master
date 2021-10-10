@@ -1,6 +1,7 @@
 package com.clock.service.impl;
 
 import com.clock.bean.Dynamic;
+import com.clock.bean.User;
 import com.clock.bean.bo.DynamicBO;
 import com.clock.bean.po.DynamicPO;
 import com.clock.dao.DynamicMapper;
@@ -61,14 +62,8 @@ public class DynamicServiceImpl implements DynamicService {
     }
 
     @Override
-    public ApiRes selectDynamicByName(DynamicPO po) {
-        if ("1".equals(po.getIsPage())) {
-            PageHelper.startPage(po.getPageNum(),po.getPageSize());
-            List<DynamicPO> list = dynamicMapper.selectByName(po);
-            PageInfo<DynamicPO> info = new PageInfo<>(list);
-            return ApiRes.ok(info);
-        }
-        List<DynamicPO> list = dynamicMapper.selectByName(po);
+    public ApiRes selectDynamicByName(String username) {
+        List<Dynamic> list = dynamicMapper.selectByName(username);
         return ApiRes.ok(list);
     }
 

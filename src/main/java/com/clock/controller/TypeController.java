@@ -19,6 +19,11 @@ public class TypeController {
         return typeService.selectAllType(typePO);
     }
 
+    @PostMapping("/selectTypeById")
+    public ApiRes selectTypeById(Integer tid) {
+        return typeService.selectTypeById(tid);
+    }
+
     @PostMapping("/addType")
     public ApiRes addType(@RequestBody Type type){
         return typeService.addType(type);

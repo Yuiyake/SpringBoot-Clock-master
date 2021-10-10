@@ -34,8 +34,8 @@ public class DynamicController {
 
     @PostMapping("/selectDynamicByName")
     @ApiOperation("按名字查询该用户动态")
-    public ApiRes selectDynamicByName(@RequestBody DynamicPO po) {
-        return dynamicService.selectDynamicByName(po);
+    public ApiRes selectDynamicByName(String username) {
+        return dynamicService.selectDynamicByName(username);
     }
 
     @GetMapping("/deleteDynamic")

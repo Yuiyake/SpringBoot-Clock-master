@@ -45,5 +45,5 @@ public interface DynamicMapper {
 
     int selectUidByDid(Integer did);
 
-    List<DynamicPO> selectByName(DynamicPO po);
+    List<Dynamic> selectByName(String username);
 }

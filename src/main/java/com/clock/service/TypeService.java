@@ -14,4 +14,7 @@ public interface TypeService {
     ApiRes deleteType(Integer tid);
 
     ApiRes addType(Type type);
+
+    ApiRes selectTypeById(Integer tid);
+
 }

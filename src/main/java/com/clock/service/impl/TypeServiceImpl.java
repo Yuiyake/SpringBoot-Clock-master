@@ -1,14 +1,12 @@
 package com.clock.service.impl;
 
 import com.clock.bean.Type;
-import com.clock.bean.bo.TypeBO;
 import com.clock.bean.po.TypePO;
 import com.clock.dao.TypeMapper;
 import com.clock.service.TypeService;
 import com.clock.util.ApiRes;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,6 +45,12 @@ public class TypeServiceImpl implements TypeService {
     public ApiRes addType(Type type) {
         typeMapper.insertSelective(type);
         return ApiRes.ok("success");
+    }
+
+    @Override
+    public ApiRes selectTypeById(Integer tid) {
+        List<Type> list = typeMapper.selectTypeById(tid);
+        return ApiRes.ok(list);
     }
 
 

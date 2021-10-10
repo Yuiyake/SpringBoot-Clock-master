@@ -31,4 +31,6 @@ public interface TypeMapper {
     int updateByPrimaryKeySelective(Type record);
 
     int updateByPrimaryKey(Type record);
+
+    List<Type> selectTypeById(Integer tid);
 }
