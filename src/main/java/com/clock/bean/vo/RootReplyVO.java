@@ -30,6 +30,8 @@ public class RootReplyVO {
 
     private Integer touid;
 
+    private String uavg;
+
 
     public Integer getRid() {
         return rid;
@@ -103,6 +105,14 @@ public class RootReplyVO {
     private Date rTime;
 
     private String rContents;
+
+    public String getUavg() {
+        return uavg;
+    }
+
+    public void setUavg(String uavg) {
+        this.uavg = uavg;
+    }
 
 
     public List<ReplyVO> getReplyVOS() {

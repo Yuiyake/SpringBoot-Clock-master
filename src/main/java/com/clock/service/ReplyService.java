@@ -29,6 +29,4 @@ public interface ReplyService {
 //    更新该动态的评论数
     ApiRes updateReplyCount(Integer did);
 
-
-
 }

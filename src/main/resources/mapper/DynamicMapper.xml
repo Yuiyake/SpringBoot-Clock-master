@@ -200,9 +200,9 @@
     where d.uid = u.id
   </select>
   <select id="selectUserDynamic" resultType="com.clock.bean.Dynamic">
-    select *
-    from dynamic
-    where uid = #{uid}
+    select d.*, u.username
+    from dynamic d, user u
+    where d.uid = #{uid} and u.id = #{uid}
   </select>
   <select id="selectThisDynamic" resultType="com.clock.bean.Dynamic">
     select *

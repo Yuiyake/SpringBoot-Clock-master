@@ -84,4 +84,12 @@ public class Dynamic {
     public void setDconcern(String dconcern) {
         this.dconcern = dconcern == null ? null : dconcern.trim();
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }

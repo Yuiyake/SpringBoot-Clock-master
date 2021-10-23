@@ -20,13 +20,13 @@ public class SpringBeans {
 
 
     /**
-     * 引入Fastjson解析json，不使用默认的jackson
+     * 引入阿里的Fastjson解析json，不使用默认的jackson
      */
     @Bean
     public HttpMessageConverters fastJsonHttpMessageConverters() {
         FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
 
-        // 处理中文乱码问题
+        // 处理中文乱码问题 相当于在 Controller 上的 @RequestMapping 中加了个属性 produces = "application/json"
         List<MediaType> fastMediaTypes = new ArrayList<>();
         fastMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
         fastConverter.setSupportedMediaTypes(fastMediaTypes);
@@ -34,10 +34,10 @@ public class SpringBeans {
         FastJsonConfig fastJsonConfig = new FastJsonConfig();
         //自定义格式化输出
         fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat,
-                SerializerFeature.WriteNullStringAsEmpty,
-                SerializerFeature.WriteDateUseDateFormat,
-                SerializerFeature.WriteMapNullValue,
-                SerializerFeature.DisableCircularReferenceDetect);//禁止循环引用
+                SerializerFeature.WriteNullStringAsEmpty,   // string 类型的 null 转成""
+                SerializerFeature.WriteDateUseDateFormat,   // 时间转换
+                SerializerFeature.WriteMapNullValue,    // 保留 Map 空的字段
+                SerializerFeature.DisableCircularReferenceDetect);  // 禁止循环引用
 
         fastConverter.setFastJsonConfig(fastJsonConfig);
         return new HttpMessageConverters((HttpMessageConverter<?>) fastConverter);

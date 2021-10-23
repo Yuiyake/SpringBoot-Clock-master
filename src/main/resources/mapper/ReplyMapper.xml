@@ -208,7 +208,7 @@
   </select>
 
   <select id="selectUserReply" resultMap="Comments" parameterType="com.clock.bean.vo.RootReplyVO">
-    SELECT r.*, u.username  as touname, u2.username as fromuname
+    SELECT r.*, u.username as touname, u2.username as fromuname, u2.uavg as uavg
     FROM `reply` r
            join user u on u.id = r.touid
            join user u2 on u2.id = r.fromuid
