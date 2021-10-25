@@ -21,7 +21,7 @@ public class ScoreController {
         return scoreService.selectAllScore(scorePO);
     }
 
-    @RequestMapping("/selectUserScore")
+    @PostMapping("/selectUserScore")
     public ApiRes selectUserScore(Integer uid) {
         return scoreService.selectUserScore(uid);
     }

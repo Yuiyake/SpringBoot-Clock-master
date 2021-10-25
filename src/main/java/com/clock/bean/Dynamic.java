@@ -21,6 +21,8 @@ public class Dynamic {
 
     private String username;
 
+    private String tname;
+
     public Integer getDid() {
         return did;
     }
@@ -92,4 +94,16 @@ public class Dynamic {
     public void setUsername(String username) {
         this.username = username;
     }
+
+
+    public String getTname() {
+        return tname;
+    }
+
+    public void setTname(String tname) {
+        this.tname = tname;
+    }
+
+
+
 }

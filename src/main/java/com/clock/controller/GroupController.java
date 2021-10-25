@@ -44,7 +44,7 @@ public class GroupController {
         return groupService.userAddGroup(group);
     }
 
-    @RequestMapping("/selectMyGroups")
+    @PostMapping("/selectMyGroups")
     @ApiOperation("查找当前用户小组")
     public ApiRes selectMyGroups(Integer uid) {
         return addGroupService.selectMyGroups(uid);
@@ -56,19 +56,20 @@ public class GroupController {
         return addGroupService.userJoinGroup(uid, gid);
     }
 
-    @RequestMapping("/changeGnum")
+//    @RequestMapping(path="/changeGnum", method = RequestMethod.POST)
+    @PostMapping("/changeGnum")
     @ApiOperation("更改小组数字")
     public ApiRes changeGnum(Integer gid){
         return groupService.changeGroupNum(gid);
     }
 
-    @RequestMapping("/userQuitGroup")
+    @DeleteMapping("/userQuitGroup")
     @ApiOperation("用户退出小组（addgroop表）")
     public ApiRes userQuitGroup(Integer uid, Integer gid){
         return addGroupService.userQuitGroup(uid, gid);
     }
 
-    @RequestMapping("/userDeleteGnum")
+    @DeleteMapping("/userDeleteGnum")
     @ApiOperation("用户退出小组（groop表）")
     public ApiRes userDeleteGnum(Integer gid){
         return groupService.userQuitGroup(gid);

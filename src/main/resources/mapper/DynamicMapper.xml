@@ -195,19 +195,19 @@
     </if>
   </select>
   <select id="selectAllDynamic" resultType="com.clock.bean.bo.DynamicBO">
-    select d.*, u.username
-    from dynamic d, user u
-    where d.uid = u.id
+    select d.*, u.username,t.tname
+    from dynamic d inner join user u on d.uid =u.id inner join type t on t.tid = d.tid
   </select>
   <select id="selectUserDynamic" resultType="com.clock.bean.Dynamic">
-    select d.*, u.username
-    from dynamic d, user u
-    where d.uid = #{uid} and u.id = #{uid}
+    select d.*, u.username,t.tname
+    from dynamic d inner join user u on u.id = d.uid inner join type t on d.tid = t.tid
+    where d.uid = #{uid}
   </select>
   <select id="selectThisDynamic" resultType="com.clock.bean.Dynamic">
-    select *
-    from dynamic
-    where did = #{did}
+    select d.*, u.username
+    from dynamic d
+    join user u on d.uid = u.id
+    where d.did = #{did}
   </select>
   <select id="selectUidByDid" resultType="java.lang.Integer">
     select uid
@@ -215,13 +215,10 @@
     where did = #{did}
   </select>
   <select id="selectByName" resultType="com.clock.bean.Dynamic">
-    select d.*
+    select d.*, u.username
     from dynamic d
-    <if test="username != null and username != ''">
       join user u on u.id=d.uid
       where u.username = #{username}
-    </if>
-
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     update dynamic

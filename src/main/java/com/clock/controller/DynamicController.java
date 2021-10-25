@@ -44,13 +44,13 @@ public class DynamicController {
         return dynamicService.deleteDynamic(did);
     }
 
-    @RequestMapping("/selectUserDynamic")
+    @RequestMapping(path="/selectUserDynamic", method = {RequestMethod.POST})
     @ApiOperation("查询单个用户的动态")
     public ApiRes selectUserDynamic(Integer uid){
         return dynamicService.selectUserDynamic(uid);
     }
 
-    @RequestMapping("/selectThisDynamic")
+    @RequestMapping(path="/selectThisDynamic", method = RequestMethod.POST)
     @ApiOperation("查询当前账号用户动态")
     public ApiRes selectThisDynamic(Integer did){
         return dynamicService.selectThisDynamic(did);
