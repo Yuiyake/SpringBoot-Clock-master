@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -40,34 +41,25 @@ public class UserServiceImpl implements UserService {
         } else if ("1".equals(user.getRole())){
             return ApiRes.ok(user);
         }
-        UserBO bo = userMapper.selectById(user.getId());
+        User bo = userMapper.selectById(user.getId());
         return ApiRes.ok(bo);
     }
 
 //添加
     @Override
     public ApiRes register(User user) {
-        if ("0".equals(user.getRole())){
-            userMapper.updateByPrimaryKeySelective(user);
-        } else {
-            UserExample example = new UserExample();
-            UserExample.Criteria criteria = example.createCriteria();
-//            criteria.andAccountEqualTo(user.getAccount());
-            if (user.getId()!=null)
-                criteria.andIdNotEqualTo(user.getId());
-            List<User> users = userMapper.selectByExample(example);
-//            if (!CollectionUtils.isEmpty(users))
-//                return ApiRes.fail("学号不能重复！");
-//            System.out.println(user.getId());
-//            if (user.getId()!=null) {
-//                userMapper.updateByPrimaryKeySelective(user);
-//                System.out.println("执行了这个if");
-//                // 这里有问题，添加成员也会执行这个update，而不是添加
-//            } else {
+            String userAccount = userMapper.selectUserByAcc(user.getAccount());
+            System.out.println(userAccount);
+            if(userAccount != null ){
+                if(userAccount.equals(user.getAccount())){
+                    return ApiRes.fail("账号不能重复！");
+                }
+            } else {
+                user.setCreatetime(new Date());
                 userMapper.insertSelective(user);
-//            }
-        }
-        return ApiRes.ok("success");
+                return ApiRes.ok("success");
+            }
+        return ApiRes.fail("未知错误");
     }
 
     @Override

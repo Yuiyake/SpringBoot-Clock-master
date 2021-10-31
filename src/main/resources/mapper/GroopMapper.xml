@@ -142,9 +142,12 @@
       </if>
     </trim>
   </insert>
-  <insert id="userCreateGroup" parameterType="com.clock.bean.Groop">
-    insert into groop (gid, gname, clocktype, gnum, clocknum)
-    values (#{gid}, #{gname}, #{clocktype}, 1, '0')
+  <insert id="userCreateGroup"  parameterType="com.clock.bean.Groop">
+    <selectKey keyProperty="gid" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into groop ( gname, clocktype, gnum, clocknum)
+    values ( #{gname}, #{clocktype}, 0, '0')
   </insert>
   <select id="countByExample" parameterType="com.clock.bean.GroopExample" resultType="java.lang.Long">
     select count(*) from groop
@@ -164,8 +167,11 @@
       from groop
       where gname like concat('%',#{gname},'%')
     </select>
+  <select id="selectName" resultType="java.lang.String">
+    select gname from groop where gname=#{gname}
+  </select>
 
-    <update id="updateByExampleSelective" parameterType="map">
+  <update id="updateByExampleSelective" parameterType="map">
     update groop
     <set>
       <if test="record.gid != null">

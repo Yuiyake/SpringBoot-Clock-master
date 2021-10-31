@@ -28,7 +28,16 @@ public class BarVO {
         this.clocknum = clocknum;
     }
 
+    public List<String> getGroupname() {
+        return groupname;
+    }
+
+    public void setGroupname(List<String> groupname) {
+        this.groupname = groupname;
+    }
+
     private List<Integer> groupnum;
     private List<Integer> clocknum;
+    private List<String> groupname;
     private List<DataVO> values;
 }

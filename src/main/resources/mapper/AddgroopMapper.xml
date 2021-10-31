@@ -92,7 +92,11 @@
     where uid = #{uid}
       and gid = #{gid}
   </delete>
-  <insert id="insert" parameterType="com.clock.bean.Addgroop">
+    <delete id="deleteByGid">
+      delete from addgroop
+        where gid = #{gid}
+    </delete>
+    <insert id="insert" parameterType="com.clock.bean.Addgroop">
     <selectKey keyProperty="gid" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>

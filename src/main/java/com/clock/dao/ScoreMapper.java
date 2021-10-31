@@ -40,4 +40,8 @@ public interface ScoreMapper {
     int userClock(Integer uid);
 
     int userGroupClock(Integer uid);
+
+    int addScore(Integer uid);
+
+    Score selectUid(Integer uid);
 }

@@ -17,4 +17,6 @@ public interface ScoreService {
     ApiRes userClock(Integer uid);
 
     ApiRes userGroupClock(Integer uid);
+
+    ApiRes userDaka(Integer uid);
 }

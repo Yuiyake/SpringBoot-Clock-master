@@ -57,4 +57,10 @@ public class ScoreServiceImpl implements ScoreService {
         scoreMapper.userGroupClock(uid);
         return ApiRes.ok("success");
     }
+
+    @Override
+    public ApiRes userDaka(Integer uid) {
+        scoreMapper.addScore(uid);
+        return ApiRes.ok("success");
+    }
 }

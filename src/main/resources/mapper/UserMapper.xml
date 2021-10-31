@@ -234,7 +234,10 @@
     from user  u
     where u.id=#{id}
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+    <select id="selectUserByAcc" resultType="java.lang.String">
+      select account from user where account=#{account}
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
     update user
     <set>
       <if test="record.id != null">

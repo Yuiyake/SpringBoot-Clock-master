@@ -126,7 +126,12 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.clock.bean.ScoreExample" resultType="java.lang.Long">
+    <update id="addScore" parameterType="com.clock.bean.Score">
+      update score
+        set score = score+10
+        where uid = #{uid}
+    </update>
+    <select id="countByExample" parameterType="com.clock.bean.ScoreExample" resultType="java.lang.Long">
     select count(*) from score
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -139,6 +144,9 @@
     select s.*, u.clockday,isclock
     from score s join user u on u.id = #{uid}
     where s.uid = #{uid}
+  </select>
+  <select id="selectUid" resultType="com.clock.bean.Score">
+    select uid from score where uid=#{uid}
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     update score

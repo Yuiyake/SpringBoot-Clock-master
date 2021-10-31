@@ -10,6 +10,8 @@ public interface AddgroopMapper {
 
     int deleteByExample(AddgroopExample example);
 
+    int deleteByGid(Integer gid);
+
     int insert(Addgroop record);
 
     int insertSelective(Addgroop record);

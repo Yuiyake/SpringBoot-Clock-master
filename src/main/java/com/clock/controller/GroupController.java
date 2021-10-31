@@ -8,6 +8,7 @@ import com.clock.service.AddGroupService;
 import com.clock.service.GroupService;
 import com.clock.util.ApiRes;
 import io.swagger.annotations.ApiOperation;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,10 +39,18 @@ public class GroupController {
         return groupService.updateGroup(group);
     }
 
-    @PostMapping("/userAddGroup")
-    @ApiOperation("用户加入小组（groop）")
+    @RequestMapping("/userAddGroup")
+    @ApiOperation("用户创建小组（groop）")
     public ApiRes userAddGroup(@RequestBody Groop group) {
+//        GroopPO po1 = new GroopPO();
+//        ApiRes groop1 = groupService.selectAllGroups(po1);
         return groupService.userAddGroup(group);
+    }
+
+    @DeleteMapping("/delGroup")
+    @ApiOperation("管理员删除小组")
+    public ApiRes delGroup(Integer gid){
+        return groupService.delGroup(gid);
     }
 
     @PostMapping("/selectMyGroups")

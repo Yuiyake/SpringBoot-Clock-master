@@ -19,6 +19,8 @@ public interface UserMapper {
 
     int insertSelective(User record);
 
+    String selectUserByAcc(String account);
+
     List<User> selectByExample(UserExample example);
 
     User selectByPrimaryKey(Integer id);

@@ -26,4 +26,9 @@ public class ScoreController {
         return scoreService.selectUserScore(uid);
     }
 
+    @PostMapping("/userDaka")
+    public ApiRes userDakaScore(Integer uid){
+        return scoreService.userDaka(uid);
+    }
+
 }
